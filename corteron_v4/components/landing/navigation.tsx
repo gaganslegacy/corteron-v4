@@ -85,7 +85,7 @@ export function Navigation() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm transition-colors duration-300 relative group outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm ${
+                  className={`text-base transition-colors duration-300 relative group outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm ${
                     isActive ? "text-white" : "text-[#6B7280] hover:text-white"
                   }`}
                 >
