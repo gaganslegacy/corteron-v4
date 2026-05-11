@@ -65,8 +65,8 @@ function FloatingTOC() {
             onClick={() => scrollToSection(section)}
             className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-all duration-150 ${
               activeSection === section
-                ? "text-[#4F46E5] font-semibold bg-[rgba(79,70,229,0.1)] border-l-2 border-[#4F46E5]"
-                : "text-[#6B7280] hover:text-[#4F46E5]"
+                ? "text-primary font-semibold bg-primary/10 border-l-2 border-primary"
+                : "text-[#6B7280] hover:text-primary"
             }`}
           >
             {section}
@@ -93,7 +93,7 @@ function ProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 h-0.5 bg-[#4F46E5] z-50 transition-all duration-300" style={{ width: `${progress}%` }} />
+    <div className="fixed top-0 left-0 h-0.5 bg-primary z-50 transition-all duration-300" style={{ width: `${progress}%` }} />
   );
 }
 
@@ -114,11 +114,11 @@ export default function TermsPage() {
       <Navigation />
 
       {/* Decorative top accent */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(79,70,229,0.5)] to-transparent mt-20" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mt-20" />
       <div
         className="w-full h-48 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(79,70,229,0.06) 0%, transparent 100%)",
+          background: "radial-gradient(ellipse 60% 40% at 50% 0%, color-mix(in srgb, var(--primary) 6%, transparent) 0%, transparent 100%)",
         }}
       />
 
@@ -135,7 +135,7 @@ export default function TermsPage() {
           </h1>
           <p className="text-sm text-[#6B7280] mt-3 mb-6">Last updated: January 2026</p>
           <div className="flex justify-center">
-            <div className="h-0.5 w-[60px] bg-[#4F46E5] rounded-full" />
+            <div className="h-0.5 w-[60px] bg-primary rounded-full" />
           </div>
         </div>
 
@@ -143,7 +143,7 @@ export default function TermsPage() {
         <div className="mt-16 space-y-1">
           {/* Acceptance of Terms */}
           <section id="acceptance-of-terms" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Acceptance of Terms
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -154,7 +154,7 @@ export default function TermsPage() {
 
           {/* Services Description */}
           <section id="services-description" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Services Description
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -165,7 +165,7 @@ export default function TermsPage() {
 
           {/* Payment Terms */}
           <section id="payment-terms" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Payment Terms
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -176,13 +176,13 @@ export default function TermsPage() {
 
           {/* Cancellation Policy */}
           <section id="cancellation-policy" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative flex items-center gap-3" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
-              <Calendar className="w-[18px] h-[18px] text-[#4F46E5]" />
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative flex items-center gap-3" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
+              <Calendar className="w-[18px] h-[18px] text-primary" />
               Cancellation Policy
             </h2>
             <p className="text-base text-[#C0C8D8] leading-[2] mb-4">
               Monthly contracts with 30 days notice required for cancellation. No long-term lock-ins. Cancellation must be submitted in writing to{" "}
-            <a href="mailto:info@corteron.com" className="text-[#4F46E5] hover:underline">
+            <a href="mailto:info@corteron.com" className="text-primary hover:underline">
               info@corteron.com
               </a>
               . Your service will continue through the end of your current billing cycle.
@@ -192,7 +192,7 @@ export default function TermsPage() {
 
           {/* Limitation of Liability */}
           <section id="limitation-of-liability" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Limitation of Liability
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -206,7 +206,7 @@ export default function TermsPage() {
 
           {/* Governing Law */}
           <section id="governing-law" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Governing Law
             </h2>
             <p className="text-base text-[#C0C8D8] leading-[2] mb-4">
@@ -217,7 +217,7 @@ export default function TermsPage() {
 
           {/* Dispute Resolution */}
           <section id="dispute-resolution" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Dispute Resolution
             </h2>
             <p className="text-base text-[#C0C8D8] leading-[2] mb-4">
@@ -228,7 +228,7 @@ export default function TermsPage() {
 
           {/* Modifications */}
           <section id="modifications" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Modifications
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -237,9 +237,9 @@ export default function TermsPage() {
           </section>
 
           {/* Jurisdiction Card */}
-          <div className="mt-16 p-8 bg-[#0D0D1F] rounded-2xl border border-[#4F46E5]/20" style={{ boxShadow: "0 0 40px rgba(79,70,229,0.06)", borderTop: "2px solid", borderImage: "linear-gradient(to right, #4F46E5, rgba(79,70,229,0.5), transparent) 1" }}>
+          <div className="mt-16 p-8 bg-[#0D0D1F] rounded-2xl border border-primary/20" style={{ boxShadow: "0 0 40px color-mix(in srgb, var(--primary) 6%, transparent)", borderTop: "2px solid", borderImage: "linear-gradient(to right, var(--primary), color-mix(in srgb, var(--primary) 50%, transparent), transparent) 1" }}>
             <p className="text-sm text-[#D1D5DB] leading-[1.9] flex items-start gap-3">
-              <Info className="w-5 h-5 text-[#4F46E5] flex-shrink-0 mt-0.5" />
+              <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               These Terms of Service are governed by and construed in accordance with the laws of the Province of Ontario. You hereby consent to the exclusive jurisdiction of the courts of Ontario for any disputes arising from these terms or your use of Corteron services.
             </p>
           </div>
@@ -248,11 +248,11 @@ export default function TermsPage() {
 
       {/* Back navigation */}
       <div className="max-w-[860px] mx-auto px-6 py-8 flex items-center justify-between border-t border-[rgba(255,255,255,0.04)]">
-        <Link href="/" className="flex items-center gap-2 text-[#4F46E5] text-sm font-medium hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center gap-2 text-primary text-sm font-medium hover:opacity-80 transition-opacity">
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
-        <button onClick={scrollToTop} className="flex items-center gap-2 text-[#4F46E5] text-sm font-medium hover:opacity-80 transition-opacity">
+        <button onClick={scrollToTop} className="flex items-center gap-2 text-primary text-sm font-medium hover:opacity-80 transition-opacity">
           Back to top
           <ArrowUp className="w-4 h-4" />
         </button>

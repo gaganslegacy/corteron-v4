@@ -53,7 +53,7 @@ function ResultCard({
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <span className="inline-block px-3 py-1 bg-[#4F46E5] text-white text-xs font-mono rounded mb-4">
+      <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-mono rounded mb-4">
         {result.badge}
       </span>
       <div className="text-5xl lg:text-6xl font-display text-[#B45309] mb-2">
@@ -86,8 +86,8 @@ export function ResultsSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             Early Results
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">
@@ -105,7 +105,7 @@ export function ResultsSection() {
         {/* Footer */}
         <p className="text-center text-[#6B7280] text-sm">
           Results from businesses running on Corteron. Full case studies publishing soon.{" "}
-          <a href="/case-studies" className="text-[#4F46E5] hover:text-white transition-colors">
+          <a href="/case-studies" className="text-primary hover:text-white transition-colors">
             View Case Studies
           </a>
         </p>

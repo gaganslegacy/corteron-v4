@@ -104,7 +104,7 @@ function AutonomyCard({ level, index }: { level: (typeof autonomyLevels)[0]; ind
           <div
             className={`w-[52px] h-[52px] rounded-full flex items-center justify-center text-18px font-bold transition-all duration-300 ${
               level.isLive
-                ? "bg-[#4F46E5] text-white shadow-lg shadow-[#4F46E5]/60"
+                ? "bg-primary text-white shadow-lg shadow-primary/60"
                 : "bg-[#0D0D1F] border-2 border-white/20 text-[#6B7280]"
             }`}
           >
@@ -115,11 +115,12 @@ function AutonomyCard({ level, index }: { level: (typeof autonomyLevels)[0]; ind
             <div
               className={`mt-4 transition-all duration-500 ${
                 index < 1
-                  ? "w-px h-24 bg-[#4F46E5] shadow-[0_0_8px_rgba(79,70,229,0.6)]"
+                  ? "w-px h-24 bg-primary"
                   : "w-px h-24 bg-dashed"
               }`}
               style={{
                 backgroundImage: index < 1 ? "none" : "repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 6px)",
+                boxShadow: index < 1 ? "0 0 8px color-mix(in srgb, var(--primary) 60%, transparent)" : "none",
               }}
             />
           )}
@@ -127,7 +128,7 @@ function AutonomyCard({ level, index }: { level: (typeof autonomyLevels)[0]; ind
 
         {/* Content */}
         <div
-          className="flex-1 pt-3 ml-12 group/card p-7 bg-[#0D0D1F] rounded-2xl border border-white/5 transition-all duration-300 group-hover:border-[#4F46E5]/30 group-hover:-translate-y-1"
+          className="flex-1 pt-3 ml-12 group/card p-7 bg-[#0D0D1F] rounded-2xl border border-white/5 transition-all duration-300 group-hover:border-primary/30 group-hover:-translate-y-1"
         >
           <h3 className="text-20px font-bold text-white">{level.title}</h3>
           <p className="text-15px text-[#9CA3AF] leading-[1.8] mt-2">{level.description}</p>
@@ -176,16 +177,16 @@ function VisionCard({ card, index }: { card: (typeof visionCards)[0]; index: num
     >
       {card.type === "positive" ? (
         <div
-          className="relative rounded-2xl p-8 border-2 border-[#4F46E5]/40 overflow-hidden group scale-105 shadow-xl shadow-[#4F46E5]/12"
+          className="relative rounded-2xl p-8 border-2 border-primary/40 overflow-hidden group scale-105 shadow-xl shadow-primary/12"
           style={{
-            background: "linear-gradient(to bottom, #0D0D1F, rgba(79, 70, 229, 0.05))",
+            background: "linear-gradient(to bottom, #0D0D1F, color-mix(in srgb, var(--primary) 5%, transparent))",
           }}
         >
           {/* Background glow */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style={{
-              boxShadow: "0 0 60px rgba(79, 70, 229, 0.12) inset",
+              boxShadow: "0 0 60px color-mix(in srgb, var(--primary) 12%, transparent) inset",
             }}
           />
 
@@ -196,7 +197,7 @@ function VisionCard({ card, index }: { card: (typeof visionCards)[0]; index: num
 
           {/* Content */}
           <div className="relative z-10">
-            <Icon className="w-10 h-10 text-[#4F46E5] mb-4" />
+            <Icon className="w-10 h-10 text-primary mb-4" />
             <h3 className="text-20px font-bold text-white mt-0">{card.title}</h3>
             <p className="text-15px text-[#9CA3AF] leading-[1.8] mt-3">{card.description}</p>
           </div>
@@ -254,12 +255,12 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section ref={heroRef} className="relative py-32 lg:py-40 overflow-hidden">
-        {/* Radial indigo glow behind headline */}
+        {/* Radial brand glow behind headline */}
         <div className="absolute inset-0 top-1/4 pointer-events-none">
           <div
             className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -272,14 +273,14 @@ export default function AboutPage() {
                 isHeroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+              <span className="hidden lg:block w-6 h-px bg-primary" />
               <span
-                className="text-11px font-mono text-[#4F46E5] uppercase tracking-[0.3em]"
+                className="text-11px font-mono text-primary uppercase tracking-[0.3em]"
                 style={{ letterSpacing: "0.3em" }}
               >
                 The Story
               </span>
-              <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+              <span className="hidden lg:block w-6 h-px bg-primary" />
             </div>
 
             {/* Headline */}
@@ -290,7 +291,7 @@ export default function AboutPage() {
               style={{ letterSpacing: "-0.02em" }}
             >
               Built by Someone Who Ran the Businesses{" "}
-              <span className="text-[#4F46E5]">First.</span>
+              <span className="text-primary">First.</span>
             </h1>
 
             {/* Subtext */}
@@ -328,7 +329,7 @@ export default function AboutPage() {
           <div
             className="absolute right-0 top-0 w-[400px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 5%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -343,7 +344,7 @@ export default function AboutPage() {
             {/* Left: Quote */}
             <div className="relative flex flex-col justify-start">
               <div
-                className="absolute top-0 left-0 text-[160px] font-900 text-[#4F46E5] opacity-15 leading-none"
+                className="absolute top-0 left-0 text-[160px] font-900 text-primary opacity-15 leading-none"
                 style={{ marginTop: "-40px", marginLeft: "-30px" }}
               >
                 "
@@ -352,7 +353,7 @@ export default function AboutPage() {
                 className="relative text-24px italic text-white leading-[1.6] font-light"
                 style={{ fontWeight: 300 }}
               >
-                <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#4F46E5]" />
+                <span className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
                 <span className="pl-6">
                   Every business has the same eight problems. We built one system that solves all of them across every business simultaneously.
                 </span>
@@ -425,7 +426,7 @@ export default function AboutPage() {
           <div
             className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 5%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -441,7 +442,7 @@ export default function AboutPage() {
             <div
               className="absolute inset-0 rounded-2xl pointer-events-none opacity-20"
               style={{
-                backgroundImage: `conic-gradient(from 0deg, transparent, rgba(79, 70, 229, 0.4), transparent 50%, transparent)`,
+                backgroundImage: `conic-gradient(from 0deg, transparent, color-mix(in srgb, var(--primary) 40%, transparent), transparent 50%, transparent)`,
                 animation: "spin 6s linear infinite",
               }}
             />
@@ -449,14 +450,14 @@ export default function AboutPage() {
             {/* Avatar with concentric rings */}
             <div className="relative inline-block mx-auto mb-6">
               {/* Ring 3 - largest */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[176px] h-[176px] rounded-full border border-[#4F46E5] opacity-5" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[176px] h-[176px] rounded-full border border-primary opacity-5" />
               {/* Ring 2 - medium */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[144px] h-[144px] rounded-full border border-[#4F46E5] opacity-10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[144px] h-[144px] rounded-full border border-primary opacity-10" />
               {/* Ring 1 - inner */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[112px] h-[112px] rounded-full border border-[#4F46E5] opacity-20" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[112px] h-[112px] rounded-full border border-primary opacity-20" />
 
               {/* Avatar */}
-              <div className="relative z-10 w-[88px] h-[88px] rounded-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center">
+              <div className="relative z-10 w-[88px] h-[88px] rounded-full bg-gradient-to-br from-primary to-[#7C3AED] flex items-center justify-center">
                 <span className="text-36px font-800 text-white">G</span>
               </div>
             </div>
@@ -478,7 +479,18 @@ export default function AboutPage() {
             </p>
 
             {/* CTA Button */}
-            <CalButton className="relative z-10 mt-8 px-8 py-4 bg-[#4F46E5] text-white font-medium rounded-xl transition-all duration-300 hover:shadow-[0_0_60px_rgba(79,70,229,0.5)] shadow-[0_0_40px_rgba(79,70,229,0.3)]">
+            <CalButton
+              className="relative z-10 mt-8 px-8 py-4 bg-primary text-white font-medium rounded-xl transition-all duration-300"
+              style={{
+                boxShadow: "0 0 40px color-mix(in srgb, var(--primary) 30%, transparent)",
+              } as React.CSSProperties}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 60px color-mix(in srgb, var(--primary) 50%, transparent)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 40px color-mix(in srgb, var(--primary) 30%, transparent)";
+              }}
+            >
               Book a Strategy Call
             </CalButton>
           </div>
@@ -491,13 +503,13 @@ export default function AboutPage() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(circle at center, rgba(79, 70, 229, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle at center, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%)",
           }}
         />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <span
-            className="inline-flex items-center justify-center text-11px font-mono text-[#4F46E5] uppercase mb-6"
+            className="inline-flex items-center justify-center text-11px font-mono text-primary uppercase mb-6"
             style={{ letterSpacing: "0.3em" }}
           >
             Build on Corteron
@@ -514,7 +526,7 @@ export default function AboutPage() {
             Book a 30-minute strategy call. We map the exact system for your business.
           </p>
 
-          <CalButton className="px-10 py-4 bg-[#4F46E5] text-white font-medium rounded-lg pulse-glow transition-all duration-300 mb-8">
+          <CalButton className="px-10 py-4 bg-primary text-white font-medium rounded-lg pulse-glow transition-all duration-300 mb-8">
             Book a Strategy Call
           </CalButton>
 

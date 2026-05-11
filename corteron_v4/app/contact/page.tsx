@@ -67,12 +67,12 @@ export default function ContactPage() {
 
       {/* Hero */}
       <section className="relative py-32 lg:py-40">
-        {/* Radial indigo glow behind headline */}
+        {/* Radial brand glow behind headline */}
         <div className="absolute inset-0 top-1/4 pointer-events-none">
           <div
             className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -83,9 +83,9 @@ export default function ContactPage() {
             className="inline-flex items-center justify-center gap-4 mb-8 animate-in fade-in duration-700"
             style={{ letterSpacing: "0.3em" }}
           >
-            <span className="w-6 h-px bg-[#4F46E5]" />
-            <span className="text-xs font-mono text-[#4F46E5] uppercase font-medium">Contact</span>
-            <span className="w-6 h-px bg-[#4F46E5]" />
+            <span className="w-6 h-px bg-primary" />
+            <span className="text-xs font-mono text-primary uppercase font-medium">Contact</span>
+            <span className="w-6 h-px bg-primary" />
           </div>
 
           {/* Headline */}
@@ -93,7 +93,7 @@ export default function ContactPage() {
             className="text-[clamp(48px,7vw,88px)] font-display font-black leading-[1.05] tracking-[-0.02em] text-white mb-6 animate-in fade-in duration-700 delay-150 max-w-4xl mx-auto"
           >
             Let&apos;s Build Your AI{" "}
-            <span className="text-[#4F46E5]">System.</span>
+            <span className="text-primary">System.</span>
           </h1>
 
           {/* Subtext */}
@@ -119,7 +119,7 @@ export default function ContactPage() {
               <div className="bg-[#0D0D1F] rounded-2xl p-10 border border-white/5">
                 {/* Header with icon */}
                 <div className="flex items-center gap-3 mb-6">
-                  <Calendar className="w-5 h-5 text-[#4F46E5]" />
+                  <Calendar className="w-5 h-5 text-primary" />
                   <h3 className="text-[22px] font-bold text-white">Book a Strategy Call</h3>
                 </div>
 
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     "Implementation timeline"
                   ].map((bullet) => (
                     <div key={bullet} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4F46E5] shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                       <span className="text-[15px] text-[#D1D5DB] leading-[1.6]">{bullet}</span>
                     </div>
                   ))}
@@ -156,12 +156,12 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   {/* Email */}
                   <div className="flex items-center gap-4">
-                    <div className="bg-[rgba(79,70,229,0.1)] rounded-lg p-2 w-fit">
-                      <Mail className="w-[18px] h-[18px] text-[#4F46E5]" />
+                    <div className="bg-primary/10 rounded-lg p-2 w-fit">
+                      <Mail className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div>
                       <p className="text-[14px] text-[#9CA3AF]">Email</p>
-                      <a href="mailto:info@corteron.com" className="text-[14px] text-[#4F46E5] hover:underline cursor-pointer">
+                      <a href="mailto:info@corteron.com" className="text-[14px] text-primary hover:underline cursor-pointer">
                         info@corteron.com
                       </a>
                     </div>
@@ -169,12 +169,12 @@ export default function ContactPage() {
 
                   {/* Website */}
                   <div className="flex items-center gap-4">
-                    <div className="bg-[rgba(79,70,229,0.1)] rounded-lg p-2 w-fit">
-                      <Globe className="w-[18px] h-[18px] text-[#4F46E5]" />
+                    <div className="bg-primary/10 rounded-lg p-2 w-fit">
+                      <Globe className="w-[18px] h-[18px] text-primary" />
                     </div>
                     <div>
                       <p className="text-[14px] text-[#9CA3AF]">Website</p>
-                      <a href="https://corteron.com" target="_blank" rel="noopener noreferrer" className="text-[14px] text-[#4F46E5] hover:underline cursor-pointer">
+                      <a href="https://corteron.com" target="_blank" rel="noopener noreferrer" className="text-[14px] text-primary hover:underline cursor-pointer">
                         corteron.com
                       </a>
                     </div>
@@ -199,7 +199,7 @@ export default function ContactPage() {
               <div className="bg-[#0D0D1F] rounded-2xl p-10 border border-white/5">
                 {/* Header with icon */}
                 <div className="flex items-center gap-3 mb-6">
-                  <MessageSquare className="w-5 h-5 text-[#4F46E5]" />
+                  <MessageSquare className="w-5 h-5 text-primary" />
                   <h3 className="text-[22px] font-bold text-white">Send a Message</h3>
                 </div>
 
@@ -217,13 +217,13 @@ export default function ContactPage() {
         <div
           className="h-px w-full"
           style={{
-            background: "linear-gradient(to right, transparent, rgba(79, 70, 229, 0.3), transparent)",
+            background: "linear-gradient(to right, transparent, color-mix(in srgb, var(--primary) 30%, transparent), transparent)",
           }}
         />
 
         <div className="bg-[#0A0A1A] py-10 border-t border-white/5">
           <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-center gap-3">
-            <Clock className="w-5 h-5 text-[#4F46E5]" />
+            <Clock className="w-5 h-5 text-primary" />
             <p className="text-[16px] text-[#9CA3AF]">Every message receives a personal reply within 24 hours.</p>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function ContactPage() {
               { question: "What happens after the call?", answer: "We send a custom automation plan within 24 hours." }
             ].map((faq, index) => (
               <div key={index} className="flex gap-3">
-                <HelpCircle className="w-5 h-5 text-[#4F46E5] shrink-0 mt-0.5" />
+                <HelpCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
                   <p className="text-[14px] font-bold text-white mb-1">{faq.question}</p>
                   <p className="text-[13px] text-[#6B7280]">{faq.answer}</p>
@@ -300,7 +300,7 @@ function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center py-12">
-        <div className="w-16 h-16 rounded-full bg-[#4F46E5]/20 flex items-center justify-center mb-4" style={{ boxShadow: "0 0 30px rgba(74, 222, 128, 0.2)" }}>
+        <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4" style={{ boxShadow: "0 0 30px rgba(74, 222, 128, 0.2)" }}>
           <Check className="w-8 h-8 text-[#4ADE80]" />
         </div>
         <p className="text-[24px] font-bold text-white mt-4">Message sent.</p>
@@ -310,7 +310,7 @@ function ContactForm() {
             setIsSubmitted(false);
             setFormData({ name: "", email: "", businessType: "", phone: "", message: "" });
           }}
-          className="text-[#4F46E5] hover:underline text-[14px] mt-4"
+          className="text-primary hover:underline text-[14px] mt-4"
         >
           Send another message
         </button>
@@ -332,9 +332,14 @@ function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:border-[#4F46E5]/60 focus:bg-[rgba(79,70,229,0.03)] focus:outline-none transition-all duration-200"
-            style={{
-              boxShadow: "focus:0 0 0 3px rgba(79,70,229,0.1)"
+            className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:outline-none transition-all duration-200"
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 60%, transparent)";
+              e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 3%, transparent)";
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
             }}
             placeholder="Your name"
           />
@@ -349,7 +354,15 @@ function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:border-[#4F46E5]/60 focus:bg-[rgba(79,70,229,0.03)] focus:outline-none transition-all duration-200"
+            className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:outline-none transition-all duration-200"
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 60%, transparent)";
+              e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 3%, transparent)";
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+            }}
             placeholder="your@email.com"
           />
         </div>
@@ -365,7 +378,15 @@ function ContactForm() {
           value={formData.businessType}
           onChange={handleChange}
           required
-          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] focus:border-[#4F46E5]/60 focus:bg-[rgba(79,70,229,0.03)] focus:outline-none transition-all duration-200"
+          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] focus:outline-none transition-all duration-200"
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 60%, transparent)";
+            e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 3%, transparent)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+          }}
         >
           <option value="">Select a business type</option>
           <option value="local-service">Local Service</option>
@@ -388,7 +409,15 @@ function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:border-[#4F46E5]/60 focus:bg-[rgba(79,70,229,0.03)] focus:outline-none transition-all duration-200"
+          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:outline-none transition-all duration-200"
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 60%, transparent)";
+            e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 3%, transparent)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+          }}
           placeholder="+1 (555) 123-4567"
         />
       </div>
@@ -402,7 +431,15 @@ function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:border-[#4F46E5]/60 focus:bg-[rgba(79,70,229,0.03)] focus:outline-none transition-all duration-200 resize-none min-h-[120px]"
+          className="w-full bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-[15px] placeholder-[#374151] focus:outline-none transition-all duration-200 resize-none min-h-[120px]"
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 60%, transparent)";
+            e.currentTarget.style.background = "color-mix(in srgb, var(--primary) 3%, transparent)";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+          }}
           placeholder="Tell us about your business. What are you trying to automate?"
         />
       </div>
@@ -419,7 +456,7 @@ function ContactForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-4 bg-[#4F46E5] hover:bg-[#4F46E5]/90 disabled:opacity-80 disabled:cursor-not-allowed text-white text-[15px] font-semibold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 mt-6 group"
+        className="w-full py-4 bg-primary hover:bg-primary/90 disabled:opacity-80 disabled:cursor-not-allowed text-white text-[15px] font-semibold rounded-xl transition-all duration-200 flex items-center justify-center gap-2 mt-6 group"
       >
         {isLoading ? (
           <>

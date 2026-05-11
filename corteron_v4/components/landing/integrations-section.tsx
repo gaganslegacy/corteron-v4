@@ -67,7 +67,7 @@ export function IntegrationsSection() {
               {integrations.map((integration) => (
                 <div
                   key={`${integration.name}-${setIndex}`}
-                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-[#4F46E5]/30 hover:bg-[#4F46E5]/5 transition-all duration-300 group"
+                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
                 >
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform text-white">
                     {integration.name}
@@ -88,7 +88,7 @@ export function IntegrationsSection() {
               {[...integrations].reverse().map((integration) => (
                 <div
                   key={`${integration.name}-reverse-${setIndex}`}
-                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-[#4F46E5]/30 hover:bg-[#4F46E5]/5 transition-all duration-300 group"
+                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
                 >
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform text-white">
                     {integration.name}

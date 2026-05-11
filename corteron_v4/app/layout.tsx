@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
+import { BRAND_COLOR } from '@/config/brand'
 import './globals.css'
 
 const instrumentSans = Instrument_Sans({
@@ -64,6 +65,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
+        <style dangerouslySetInnerHTML={{
+          __html: `:root { --primary: ${BRAND_COLOR}; --accent: ${BRAND_COLOR}; --ring: ${BRAND_COLOR}; --chart-1: ${BRAND_COLOR}; --sidebar-primary: ${BRAND_COLOR}; --sidebar-ring: ${BRAND_COLOR}; }`
+        }} />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"

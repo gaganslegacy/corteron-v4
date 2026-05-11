@@ -98,13 +98,13 @@ export function InfrastructureSection() {
                   <div
                     key={location.city}
                     className={`px-6 py-5 border-b border-white/5 last:border-b-0 flex items-center justify-between transition-all duration-300 ${
-                      activeLocation === index ? "bg-[#4F46E5]/10" : ""
+                      activeLocation === index ? "bg-primary/10" : ""
                     }`}
                   >
                     <div className="flex items-center gap-4">
                       <span 
                         className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                          activeLocation === index ? "bg-[#4F46E5]" : "bg-white/20"
+                          activeLocation === index ? "bg-primary" : "bg-white/20"
                         }`}
                       />
                       <div>

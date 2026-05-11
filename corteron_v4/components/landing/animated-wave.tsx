@@ -2,6 +2,18 @@
 
 import { useEffect, useRef } from "react";
 
+function getPrimaryRGB(): [number, number, number] {
+  if (typeof window === "undefined") return [79, 70, 229];
+  const color = getComputedStyle(document.documentElement).getPropertyValue("--primary").trim();
+  if (!color) return [79, 70, 229];
+  const hex = color.replace("#", "");
+  return [
+    parseInt(hex.substring(0, 2), 16),
+    parseInt(hex.substring(2, 4), 16),
+    parseInt(hex.substring(4, 6), 16),
+  ];
+}
+
 export function AnimatedWave() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
@@ -13,6 +25,7 @@ export function AnimatedWave() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const [r, g, b] = getPrimaryRGB();
     const chars = "·∘○◯◌●◉";
     let time = 0;
 
@@ -43,7 +56,6 @@ export function AnimatedWave() {
           const px = (x + 0.5) * (rect.width / cols);
           const py = (y + 0.5) * (rect.height / rows);
 
-          // Multiple wave interference
           const wave1 = Math.sin(x * 0.2 + time * 2) * Math.cos(y * 0.15 + time);
           const wave2 = Math.sin((x + y) * 0.1 + time * 1.5);
           const wave3 = Math.cos(x * 0.1 - y * 0.1 + time * 0.8);
@@ -54,7 +66,7 @@ export function AnimatedWave() {
           const charIndex = Math.floor(normalized * (chars.length - 1));
           const alpha = 0.15 + normalized * 0.5;
 
-          ctx.fillStyle = `rgba(79, 70, 229, ${alpha})`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
           ctx.fillText(chars[charIndex], px, py);
         }
       }

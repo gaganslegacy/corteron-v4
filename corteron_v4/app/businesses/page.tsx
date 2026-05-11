@@ -148,19 +148,19 @@ function BusinessCard({ business, index }: { business: (typeof businesses)[0]; i
       <div
         className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
         style={{
-          background: "linear-gradient(to right, #4F46E5 0%, rgba(79, 70, 229, 0.3) 100%)",
+          background: "linear-gradient(to right, var(--primary) 0%, color-mix(in srgb, var(--primary) 30%, transparent) 100%)",
         }}
       />
 
-      {/* Hover glow - indigo radial glow in top-right */}
+      {/* Hover glow - brand radial glow in top-right */}
       <div
         className="absolute -top-6 -right-6 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 20%, transparent) 0%, transparent 70%)",
         }}
       />
 
-      <div className="relative p-6 bg-[#0D0D1F] border border-white/5 group-hover:border-t-[#4F46E5] group-hover:border-[#4F46E5] group-hover:bg-[rgba(79,70,229,0.03)] rounded-xl transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-lg group-hover:shadow-[#4F46E5]/20">
+      <div className="relative p-6 bg-[#0D0D1F] border border-white/5 group-hover:border-primary group-hover:bg-primary/[0.03] rounded-xl transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-lg group-hover:shadow-primary/20">
         {/* Header with number badge */}
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
@@ -175,7 +175,7 @@ function BusinessCard({ business, index }: { business: (typeof businesses)[0]; i
 
         {/* Type badge */}
         <div className="flex items-center gap-2 mb-4">
-          <span className="px-3 py-1 rounded-full text-xs font-medium bg-[rgba(79,70,229,0.2)] text-[#4F46E5] border border-[#4F46E5]/30">
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/20 text-primary border border-primary/30">
             {business.type}
           </span>
           {business.isCompliant && (
@@ -261,8 +261,8 @@ function CommonThreadCard({ item }: { item: (typeof commonThreads)[0] }) {
   const Icon = item.icon;
 
   return (
-    <div className="group p-8 bg-[#0D0D1F] border border-white/5 rounded-xl hover:border-[#4F46E5] hover:bg-[rgba(79,70,229,0.05)] hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-[#4F46E5]/10">
-      <Icon className="w-10 h-10 text-[#4F46E5] mb-4" />
+    <div className="group p-8 bg-[#0D0D1F] border border-white/5 rounded-xl hover:border-primary hover:bg-primary/5 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+      <Icon className="w-10 h-10 text-primary mb-4" />
       <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
       <p className="text-sm lg:text-base text-[#9CA3AF] leading-[1.7]">{item.description}</p>
     </div>
@@ -276,12 +276,12 @@ export default function BusinessesPage() {
 
       {/* Hero */}
       <section className="relative py-32 overflow-hidden">
-        {/* Radial indigo glow behind headline */}
+        {/* Radial brand glow behind headline */}
         <div className="absolute inset-0 top-1/4 pointer-events-none">
           <div
             className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -289,10 +289,10 @@ export default function BusinessesPage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <span
-              className="inline-flex items-center gap-3 text-xs font-mono text-[#4F46E5] mb-8 uppercase"
+              className="inline-flex items-center gap-3 text-xs font-mono text-primary mb-8 uppercase"
               style={{ letterSpacing: "0.25em" }}
             >
-              <span className="w-8 h-px bg-[#4F46E5]" />
+              <span className="w-8 h-px bg-primary" />
               The Portfolio
             </span>
 
@@ -301,7 +301,7 @@ export default function BusinessesPage() {
                 13 Businesses.{" "}
                 <span className="relative inline-block">
                   One Operating System.
-                  <span className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#4F46E5] rounded-full"></span>
+                  <span className="absolute -bottom-3 left-0 right-0 h-0.5 bg-primary rounded-full"></span>
                 </span>
               </span>
             </h1>
@@ -313,9 +313,9 @@ export default function BusinessesPage() {
             {/* Stats row below subtext */}
             <div className="flex flex-wrap items-center gap-6 text-sm text-[#9CA3AF]">
               <span>13 Businesses</span>
-              <span className="w-1 h-1 rounded-full bg-[#4F46E5]"></span>
+              <span className="w-1 h-1 rounded-full bg-primary"></span>
               <span>15 Domains Each</span>
-              <span className="w-1 h-1 rounded-full bg-[#4F46E5]"></span>
+              <span className="w-1 h-1 rounded-full bg-primary"></span>
               <span>1 Infrastructure</span>
             </div>
           </div>
@@ -342,8 +342,8 @@ export default function BusinessesPage() {
           <div
             className="p-12 rounded-xl border-t border-b"
             style={{
-              background: "rgba(79, 70, 229, 0.03)",
-              borderColor: "rgba(79, 70, 229, 0.1)",
+              background: "color-mix(in srgb, var(--primary) 3%, transparent)",
+              borderColor: "color-mix(in srgb, var(--primary) 10%, transparent)",
             }}
           >
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -389,7 +389,7 @@ export default function BusinessesPage() {
           <div
             className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%)",
             }}
           />
 
@@ -399,7 +399,7 @@ export default function BusinessesPage() {
             </h2>
             <Button
               size="lg"
-              className="bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-10 py-4 h-auto text-base rounded-full pulse-glow mt-8 mb-4"
+              className="bg-primary hover:bg-primary/90 text-white px-10 py-4 h-auto text-base rounded-full pulse-glow mt-8 mb-4"
               asChild
             >
               <CalButton>

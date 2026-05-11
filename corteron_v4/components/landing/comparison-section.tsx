@@ -67,7 +67,7 @@ function ComparisonColumn({
       ref={colRef}
       className={`relative p-6 lg:p-10 border transition-all duration-700 rounded-xl ${
         data.isHighlighted
-          ? "border-2 border-[#4F46E5] bg-[#4F46E5]/5 lg:scale-105 lg:shadow-2xl lg:shadow-[#4F46E5]/40 py-10"
+          ? "border-2 border-primary bg-primary/5 lg:scale-105 lg:shadow-2xl lg:shadow-primary/40 py-10"
           : `border border-white/5 bg-[#0D0D1F] hover:border-white/10 py-6 ${data.icon === 'x' ? 'bg-[rgba(220,38,38,0.03)]' : ''}`
       } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -86,7 +86,7 @@ function ComparisonColumn({
         {data.icon === "x" ? (
           <X className={`w-6 h-6 font-bold ${data.isHighlighted ? "text-[#DC2626]" : "text-[#DC2626]"}`} strokeWidth={3} />
         ) : (
-          <CheckCircle className="w-6 h-6 text-[#4F46E5]" strokeWidth={2} />
+          <CheckCircle className="w-6 h-6 text-primary" strokeWidth={2} />
         )}
       </div>
 
@@ -96,7 +96,7 @@ function ComparisonColumn({
             {data.icon === "x" ? (
               <X className="w-5 h-5 text-[#DC2626] mt-0.5 shrink-0 font-bold" strokeWidth={3} />
             ) : (
-              <CheckCircle className="w-5 h-5 text-[#4F46E5] mt-0.5 shrink-0" strokeWidth={2} />
+              <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" strokeWidth={2} />
             )}
             <span className={`text-sm lg:text-base ${data.isHighlighted ? "text-white" : "text-[#9CA3AF]"}`}>
               {point}
@@ -129,8 +129,8 @@ export function ComparisonSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             Why Corteron
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">

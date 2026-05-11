@@ -6,6 +6,7 @@ import { FooterSection } from "@/components/landing/footer-section";
 import { useState, useEffect, useRef } from "react";
 import { Zap, Brain, GitBranch, Database, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BRAND_COLOR } from "@/config/brand";
 
 const modules = [
   {
@@ -63,7 +64,7 @@ const layers = [
     name: "Claude",
     role: "Intelligence",
     description: "AI decision engine powering every workflow",
-    accent: "#4F46E5",
+    accent: BRAND_COLOR,
     Icon: Brain,
   },
   {
@@ -113,15 +114,15 @@ function AccentDetail({ accent, isLeft }: { accent: string; isLeft: boolean }) {
     return (
       <div className="flex items-end gap-2 mt-4">
         <div className="flex flex-col items-center gap-1">
-          <div className="w-5 rounded-sm" style={{ height: 10, background: "rgba(79,70,229,0.25)" }} />
+          <div className="w-5 rounded-sm" style={{ height: 10, background: "color-mix(in srgb, var(--primary) 25%, transparent)" }} />
           <span className="text-[9px] text-[#6B7280] font-mono">Low</span>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <div className="w-5 rounded-sm" style={{ height: 18, background: "rgba(79,70,229,0.55)" }} />
+          <div className="w-5 rounded-sm" style={{ height: 18, background: "color-mix(in srgb, var(--primary) 55%, transparent)" }} />
           <span className="text-[9px] text-[#6B7280] font-mono">Med</span>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <div className="w-5 rounded-sm" style={{ height: 26, background: "#4F46E5" }} />
+          <div className="w-5 rounded-sm" style={{ height: 26, background: "var(--primary)" }} />
           <span className="text-[9px] text-[#6B7280] font-mono">High</span>
         </div>
       </div>
@@ -136,8 +137,8 @@ function AccentDetail({ accent, isLeft }: { accent: string; isLeft: boolean }) {
             key={label}
             className="text-[10px] text-[#818CF8] rounded-full px-2 py-0.5"
             style={{
-              background: "rgba(79,70,229,0.1)",
-              border: "1px solid rgba(79,70,229,0.2)",
+              background: "color-mix(in srgb, var(--primary) 10%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--primary) 20%, transparent)",
             }}
           >
             {label}
@@ -150,14 +151,14 @@ function AccentDetail({ accent, isLeft }: { accent: string; isLeft: boolean }) {
   if (accent === "timeline") {
     return (
       <div className="flex items-center gap-3 mt-4">
-        <span className="text-[11px] text-[#4F46E5] font-mono shrink-0">Day 0</span>
-        <div className="flex-1 h-1 rounded-full overflow-hidden" style={{ background: "rgba(79,70,229,0.15)" }}>
+        <span className="text-[11px] text-primary font-mono shrink-0">Day 0</span>
+        <div className="flex-1 h-1 rounded-full overflow-hidden" style={{ background: "color-mix(in srgb, var(--primary) 15%, transparent)" }}>
           <div
             className="h-full rounded-full"
-            style={{ width: "72%", background: "linear-gradient(to right, #4F46E5, #818CF8)" }}
+            style={{ width: "72%", background: "linear-gradient(to right, var(--primary), #818CF8)" }}
           />
         </div>
-        <span className="text-[11px] text-[#4F46E5] font-mono shrink-0">Day 1</span>
+        <span className="text-[11px] text-primary font-mono shrink-0">Day 1</span>
       </div>
     );
   }
@@ -202,7 +203,7 @@ function AccentDetail({ accent, isLeft }: { accent: string; isLeft: boolean }) {
             className="w-1.5 rounded-sm"
             style={{
               height: h,
-              background: "#4F46E5",
+              background: "var(--primary)",
               opacity: 0.4 + i * 0.09,
               animation: `barPulse 1.8s ease-in-out ${i * 0.12}s infinite alternate`,
             }}
@@ -241,8 +242,8 @@ function CardInner({
       onMouseEnter={(e) => {
         const el = e.currentTarget;
         el.style.transform = "translateY(-6px)";
-        el.style.borderColor = "rgba(79,70,229,0.3)";
-        el.style.boxShadow = "0 20px 60px rgba(79,70,229,0.08)";
+        el.style.borderColor = "color-mix(in srgb, var(--primary) 30%, transparent)";
+        el.style.boxShadow = "0 20px 60px color-mix(in srgb, var(--primary) 8%, transparent)";
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget;
@@ -256,7 +257,7 @@ function CardInner({
         className="absolute top-4 pointer-events-none select-none leading-none font-black"
         style={{
           fontSize: 120,
-          color: "rgba(79,70,229,0.04)",
+          color: "color-mix(in srgb, var(--primary) 4%, transparent)",
           right: isLeft ? 16 : undefined,
           left: isLeft ? undefined : 16,
           top: 16,
@@ -393,7 +394,7 @@ function ModuleCard({
                 right: "calc(50% + 22px)",
                 width: 48,
                 height: 1,
-                background: "#4F46E5",
+                background: "var(--primary)",
                 opacity: 0.45,
               }}
             />
@@ -406,12 +407,12 @@ function ModuleCard({
               width: 44,
               height: 44,
               background: "#050510",
-              border: "2px solid #4F46E5",
+              border: "2px solid var(--primary)",
             }}
           >
             <span
-              className="font-mono font-bold"
-              style={{ fontSize: 14, color: "#4F46E5" }}
+              className="font-mono font-bold text-primary"
+              style={{ fontSize: 14 }}
             >
               {module.number}
             </span>
@@ -425,7 +426,7 @@ function ModuleCard({
                 left: "calc(50% + 22px)",
                 width: 48,
                 height: 1,
-                background: "#4F46E5",
+                background: "var(--primary)",
                 opacity: 0.45,
               }}
             />
@@ -449,11 +450,11 @@ function ModuleCard({
             width: 44,
             height: 44,
             background: "#050510",
-            border: "2px solid #4F46E5",
+            border: "2px solid var(--primary)",
             marginTop: 4,
           }}
         >
-          <span className="font-mono font-bold" style={{ fontSize: 13, color: "#4F46E5" }}>
+          <span className="font-mono font-bold text-primary" style={{ fontSize: 13 }}>
             {module.number}
           </span>
         </div>
@@ -472,7 +473,7 @@ function FlowConnector({ vertical = false }: { vertical?: boolean }) {
       style={{
         width: vertical ? 1 : 60,
         height: vertical ? 48 : 1,
-        background: "rgba(79,70,229,0.3)",
+        background: "color-mix(in srgb, var(--primary) 30%, transparent)",
       }}
     >
       <div
@@ -481,8 +482,8 @@ function FlowConnector({ vertical = false }: { vertical?: boolean }) {
           width: 6,
           height: 6,
           borderRadius: "50%",
-          background: "#4F46E5",
-          boxShadow: "0 0 8px #4F46E5",
+          background: "var(--primary)",
+          boxShadow: "0 0 8px var(--primary)",
           top: vertical ? 0 : "50%",
           left: vertical ? "50%" : 0,
           transform: vertical ? "translateX(-50%)" : "translateY(-50%)",
@@ -600,20 +601,20 @@ export default function HowItWorksPage() {
           className="absolute inset-0 top-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(79,70,229,0.15) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 50% at 50% 0%, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
           }}
         />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+            <span className="hidden lg:block w-6 h-px bg-primary" />
             <span
-              className="text-[11px] font-mono text-[#4F46E5] uppercase font-bold"
+              className="text-[11px] font-mono text-primary uppercase font-bold"
               style={{ letterSpacing: "0.3em" }}
             >
               How It Works
             </span>
-            <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+            <span className="hidden lg:block w-6 h-px bg-primary" />
           </div>
 
           <h1
@@ -626,7 +627,7 @@ export default function HowItWorksPage() {
             }}
           >
             <span className="text-white">Every Function. Fully </span>
-            <span className="text-[#4F46E5]">Automated.</span>
+            <span className="text-primary">Automated.</span>
           </h1>
 
           <p
@@ -659,21 +660,21 @@ export default function HowItWorksPage() {
         className="relative py-24 lg:py-32"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, rgba(79,70,229,0.02) 50%, transparent 100%)",
+            "linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--primary) 2%, transparent) 50%, transparent 100%)",
         }}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           {/* Section header */}
           <div className="mb-20 lg:mb-28">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+              <span className="hidden lg:block w-6 h-px bg-primary" />
               <span
-                className="text-[11px] font-mono text-[#4F46E5] uppercase font-bold"
+                className="text-[11px] font-mono text-primary uppercase font-bold"
                 style={{ letterSpacing: "0.3em" }}
               >
                 The Eight Modules
               </span>
-              <span className="hidden lg:block w-6 h-px bg-[#4F46E5]" />
+              <span className="hidden lg:block w-6 h-px bg-primary" />
             </div>
 
             <h2
@@ -700,7 +701,7 @@ export default function HowItWorksPage() {
               className="hidden lg:block absolute top-0 bottom-0 w-[2px] left-1/2 -translate-x-1/2 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(to bottom, transparent 0%, #4F46E5 8%, #4F46E5 92%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, var(--primary) 8%, var(--primary) 92%, transparent 100%)",
               }}
             />
 
@@ -767,9 +768,9 @@ export default function HowItWorksPage() {
           <div
             className="mt-12 py-6"
             style={{
-              background: "rgba(79,70,229,0.03)",
-              borderTop: "1px solid rgba(79,70,229,0.1)",
-              borderBottom: "1px solid rgba(79,70,229,0.1)",
+              background: "color-mix(in srgb, var(--primary) 3%, transparent)",
+              borderTop: "1px solid color-mix(in srgb, var(--primary) 10%, transparent)",
+              borderBottom: "1px solid color-mix(in srgb, var(--primary) 10%, transparent)",
             }}
           >
             <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-16">
@@ -781,8 +782,7 @@ export default function HowItWorksPage() {
                 <div key={item.stat} className="flex items-center gap-6 lg:gap-16">
                   {i > 0 && (
                     <span
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: "#4F46E5", flexShrink: 0 }}
+                      className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
                     />
                   )}
                   <div className="text-center">
@@ -817,13 +817,13 @@ export default function HowItWorksPage() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(79,70,229,0.08) 0%, #050510 100%)",
+              "radial-gradient(circle at center, color-mix(in srgb, var(--primary) 8%, transparent) 0%, #050510 100%)",
           }}
         />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <span
-            className="inline-block text-[11px] font-mono text-[#4F46E5] uppercase font-bold mb-6"
+            className="inline-block text-[11px] font-mono text-primary uppercase font-bold mb-6"
             style={{ letterSpacing: "0.3em" }}
           >
             Ready to Start
@@ -847,8 +847,8 @@ export default function HowItWorksPage() {
 
           <Button
             size="lg"
-            className="px-10 py-4 h-auto bg-[#4F46E5] text-white text-[16px] font-semibold rounded-xl hover:bg-[#4F46E5]/90 transition-all pulse-glow mb-8"
-            style={{ boxShadow: "0 0 40px rgba(79,70,229,0.4)" }}
+            className="px-10 py-4 h-auto bg-primary text-white text-[16px] font-semibold rounded-xl hover:bg-primary/90 transition-all pulse-glow mb-8"
+            style={{ boxShadow: "0 0 40px color-mix(in srgb, var(--primary) 40%, transparent)" }}
             asChild
           >
             <CalButton>

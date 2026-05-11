@@ -34,12 +34,12 @@ export default function PricingPage() {
       
       {/* Hero */}
       <section className="relative py-32 lg:py-40">
-        {/* Radial indigo glow behind headline */}
+        {/* Radial brand glow behind headline */}
         <div className="absolute inset-0 top-1/4 pointer-events-none">
           <div
             className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -47,17 +47,17 @@ export default function PricingPage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <span 
-              className="inline-flex items-center gap-3 text-xs font-mono text-[#4F46E5] mb-8 uppercase"
+              className="inline-flex items-center gap-3 text-xs font-mono text-primary mb-8 uppercase"
               style={{ letterSpacing: "0.25em" }}
             >
-              <span className="w-8 h-px bg-[#4F46E5]" />
+              <span className="w-8 h-px bg-primary" />
               Pricing
             </span>
             <h1 className="text-[clamp(48px,7vw,88px)] font-display tracking-tight text-white mb-6 leading-[0.95]">
               Simple Pricing.{" "}
               <span className="relative inline-block">
                 Serious Results.
-                <span className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#4F46E5] rounded-full"></span>
+                <span className="absolute -bottom-3 left-0 right-0 h-0.5 bg-primary rounded-full"></span>
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-[#9CA3AF] leading-relaxed mb-6 max-w-2xl">
@@ -67,9 +67,9 @@ export default function PricingPage() {
             {/* Trust signals */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-[#9CA3AF]">
               <span>No setup fees</span>
-              <span className="w-1 h-1 rounded-full bg-[#4F46E5]"></span>
+              <span className="w-1 h-1 rounded-full bg-primary"></span>
               <span>Cancel anytime</span>
-              <span className="w-1 h-1 rounded-full bg-[#4F46E5]"></span>
+              <span className="w-1 h-1 rounded-full bg-primary"></span>
               <span>15 domains on every plan</span>
             </div>
           </div>
@@ -86,18 +86,18 @@ export default function PricingPage() {
           <div 
             className="absolute left-0 top-1/2 -translate-y-1/2 w-32 h-32 rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 30%, transparent) 0%, transparent 70%)",
             }}
           />
 
           <div 
-            className="relative p-8 lg:p-10 rounded-lg border-l-[6px] border-[#4F46E5]"
+            className="relative p-8 lg:p-10 rounded-lg border-l-[6px] border-primary"
             style={{
-              background: "linear-gradient(to right, rgba(79,70,229,0.05) 0%, transparent 100%)",
+              background: "linear-gradient(to right, color-mix(in srgb, var(--primary) 5%, transparent) 0%, transparent 100%)",
             }}
           >
             <div className="flex items-start gap-4">
-              <Shield className="w-6 h-6 text-[#4F46E5] shrink-0 mt-0.5" />
+              <Shield className="w-6 h-6 text-primary shrink-0 mt-0.5" />
               <p className="text-[16px] text-white leading-[1.8]">
                 Every Corteron plan covers all 15 business domains. The difference between plans is depth of automation and level of support, not the scope of what gets covered.
               </p>
@@ -120,35 +120,35 @@ export default function PricingPage() {
                   <th className="text-left py-4 px-6 text-[#D1D5DB] font-medium text-base">Feature</th>
                   <th className="text-center py-4 px-6 text-white font-medium text-base">Starter</th>
                   <th className="text-center py-4 px-6 text-white font-medium text-base">Growth</th>
-                  <th className="text-center py-4 px-6 bg-[rgba(79,70,229,0.15)] text-white font-medium text-base border-x border-[#4F46E5]/30">Professional</th>
+                  <th className="text-center py-4 px-6 bg-primary/15 text-white font-medium text-base border-x border-primary/30">Professional</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((feature, index) => (
                   <tr 
                     key={feature.category} 
-                    className={`border-b border-white/5 hover:bg-[rgba(79,70,229,0.03)] transition-colors ${
+                    className={`border-b border-white/5 hover:bg-primary/[0.03] transition-colors ${
                       index % 2 === 0 ? "bg-[rgba(255,255,255,0.01)]" : ""
                     }`}
                   >
                     <td className="py-4 px-6 text-[#D1D5DB] text-[15px] font-medium">{feature.category}</td>
                     <td className="py-4 px-6 text-center">
                       {feature.starter ? (
-                        <Check className="w-[18px] h-[18px] text-[#4F46E5] mx-auto" />
+                        <Check className="w-[18px] h-[18px] text-primary mx-auto" />
                       ) : (
                         <X className="w-[18px] h-[18px] text-[#DC2626] mx-auto" />
                       )}
                     </td>
                     <td className="py-4 px-6 text-center">
                       {feature.growth ? (
-                        <Check className="w-[18px] h-[18px] text-[#4F46E5] mx-auto" />
+                        <Check className="w-[18px] h-[18px] text-primary mx-auto" />
                       ) : (
                         <X className="w-[18px] h-[18px] text-[#DC2626] mx-auto" />
                       )}
                     </td>
-                    <td className="py-4 px-6 text-center bg-[rgba(79,70,229,0.02)]">
+                    <td className="py-4 px-6 text-center bg-primary/[0.02]">
                       {feature.professional ? (
-                        <Check className="w-[18px] h-[18px] text-[#4F46E5] mx-auto" />
+                        <Check className="w-[18px] h-[18px] text-primary mx-auto" />
                       ) : (
                         <X className="w-[18px] h-[18px] text-[#DC2626] mx-auto" />
                       )}
@@ -173,10 +173,10 @@ export default function PricingPage() {
 
       {/* CTA Section */}
       <section className="relative py-24 lg:py-32 mt-8">
-        {/* Radial indigo glow */}
+        {/* Radial brand glow */}
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%)",
           }}
         />
 
@@ -191,12 +191,12 @@ export default function PricingPage() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <CalButton className="px-8 py-3.5 bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white font-medium text-[15px] rounded-lg transition-all pulse-glow">
+              <CalButton className="px-8 py-3.5 bg-primary hover:bg-primary/90 text-white font-medium text-[15px] rounded-lg transition-all pulse-glow">
                 Book a Strategy Call
               </CalButton>
               <a
                 href="/contact"
-                className="px-8 py-3.5 border border-[#4F46E5] text-[#4F46E5] hover:bg-[#4F46E5]/10 font-medium text-[15px] rounded-lg transition-all"
+                className="px-8 py-3.5 border border-primary text-primary hover:bg-primary/10 font-medium text-[15px] rounded-lg transition-all"
               >
                 Talk to Us
               </a>

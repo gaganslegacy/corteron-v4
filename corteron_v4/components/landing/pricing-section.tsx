@@ -99,7 +99,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
       <div
         className={`relative p-8 rounded-2xl h-full flex flex-col transition-all duration-300 ${
           plan.popular
-            ? "border-2 border-[#4F46E5] bg-[#0D0D1F] lg:scale-105 shadow-2xl shadow-[#4F46E5]/20"
+            ? "border-2 border-primary bg-[#0D0D1F] lg:scale-105 shadow-2xl shadow-primary/20"
             : "border border-white/10 bg-[#0D0D1F] hover:border-white/20 hover:-translate-y-1"
         }`}
       >
@@ -109,7 +109,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
             className="absolute inset-0 rounded-2xl pointer-events-none opacity-5"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(79,70,229,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(79,70,229,0.3) 1px, transparent 1px)",
+                "linear-gradient(color-mix(in srgb, var(--primary) 30%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--primary) 30%, transparent) 1px, transparent 1px)",
               backgroundSize: "40px 40px",
             }}
           />
@@ -122,7 +122,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
               <span
                 className={`inline-block px-4 py-1 text-xs font-bold uppercase rounded-full ${
                   plan.popular
-                    ? "bg-[#4F46E5] text-white"
+                    ? "bg-primary text-white"
                     : "bg-[#B45309]/10 text-[#B45309] border border-[#B45309]/30"
                 }`}
                 style={{ letterSpacing: "0.1em" }}
@@ -136,11 +136,11 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
           <div
             className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
               plan.popular
-                ? "bg-[#4F46E5] shadow-lg shadow-[#4F46E5]/30"
-                : "bg-[#4F46E5]/10 border border-[#4F46E5]/20"
+                ? "bg-primary shadow-lg shadow-primary/30"
+                : "bg-primary/10 border border-primary/20"
             }`}
           >
-            <Icon className={`w-6 h-6 ${plan.popular ? "text-white" : "text-[#4F46E5]"}`} />
+            <Icon className={`w-6 h-6 ${plan.popular ? "text-white" : "text-primary"}`} />
           </div>
 
           {/* Plan name */}
@@ -176,7 +176,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
           <ul className="space-y-3 mb-8 flex-1">
             {plan.features.map((feature) => (
               <li key={feature} className="flex items-start gap-3">
-                <Check className="w-4 h-4 text-[#4F46E5] mt-0.5 shrink-0" />
+                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="text-[14px] text-[#D1D5DB] leading-relaxed">{feature}</span>
               </li>
             ))}
@@ -187,8 +187,8 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
             <CalButton
               className={`w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all flex items-center justify-center gap-2 group ${
                 plan.popular
-                  ? "bg-[#4F46E5] text-white hover:bg-[#4F46E5]/90 shadow-lg shadow-[#4F46E5]/30 hover:shadow-[#4F46E5]/50"
-                  : "border border-white/20 text-white hover:border-[#4F46E5] hover:bg-[#4F46E5]/10"
+                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50"
+                  : "border border-white/20 text-white hover:border-primary hover:bg-primary/10"
               }`}
             >
               {plan.cta}
@@ -199,8 +199,8 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
               href={plan.ctaLink}
               className={`w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all flex items-center justify-center gap-2 group ${
                 plan.popular
-                  ? "bg-[#4F46E5] text-white hover:bg-[#4F46E5]/90 shadow-lg shadow-[#4F46E5]/30 hover:shadow-[#4F46E5]/50"
-                  : "border border-white/20 text-white hover:border-[#4F46E5] hover:bg-[#4F46E5]/10"
+                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50"
+                  : "border border-white/20 text-white hover:border-primary hover:bg-primary/10"
               }`}
             >
               {plan.cta}
@@ -221,12 +221,12 @@ export function PricingSection() {
         {/* Header */}
         <div className="mb-16 lg:mb-20 text-center max-w-2xl mx-auto">
           <span
-            className="inline-flex items-center gap-3 text-[11px] font-mono text-[#4F46E5] mb-6 uppercase font-semibold"
+            className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold"
             style={{ letterSpacing: "0.25em" }}
           >
-            <span className="w-8 h-px bg-[#4F46E5]" />
+            <span className="w-8 h-px bg-primary" />
             PRICING
-            <span className="w-8 h-px bg-[#4F46E5]" />
+            <span className="w-8 h-px bg-primary" />
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-4">
             Simple Pricing. Serious Results.
@@ -238,7 +238,7 @@ export function PricingSection() {
           <div className="flex items-center justify-center gap-2 mt-5 flex-wrap">
             {["No setup fees", "Cancel anytime", "15 domains on every plan"].map((item, i) => (
               <span key={item} className="flex items-center gap-2 text-[13px] text-[#9CA3AF]">
-                {i > 0 && <span className="w-1 h-1 rounded-full bg-[#4F46E5]" />}
+                {i > 0 && <span className="w-1 h-1 rounded-full bg-primary" />}
                 {item}
               </span>
             ))}
@@ -253,10 +253,10 @@ export function PricingSection() {
         </div>
 
         {/* 15 domains callout */}
-        <div className="mt-12 p-6 rounded-xl border-l-[6px] border-[#4F46E5] bg-[#0D0D1F] border border-white/5">
+        <div className="mt-12 p-6 rounded-xl border-l-[6px] border-primary bg-[#0D0D1F] border border-white/5">
           <div className="flex items-start gap-3">
-            <div className="w-5 h-5 rounded-full bg-[#4F46E5]/20 border border-[#4F46E5]/30 flex items-center justify-center mt-0.5 shrink-0">
-              <div className="w-2 h-2 rounded-full bg-[#4F46E5]" />
+            <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mt-0.5 shrink-0">
+              <div className="w-2 h-2 rounded-full bg-primary" />
             </div>
             <p className="text-[15px] text-[#D1D5DB] leading-relaxed">
               Every Corteron plan covers all 15 business domains. The difference between plans is depth of automation and level of support, not the scope of what gets covered.
@@ -267,7 +267,7 @@ export function PricingSection() {
         {/* Bottom note */}
         <p className="mt-8 text-center text-[14px] text-[#6B7280]">
           Not sure which plan is right?{" "}
-          <a href="/contact" className="text-[#4F46E5] hover:text-white transition-colors font-medium">
+          <a href="/contact" className="text-primary hover:text-white transition-colors font-medium">
             Talk to us first
           </a>
         </p>

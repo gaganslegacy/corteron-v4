@@ -23,8 +23,6 @@ function FloatingTOC() {
     setIsVisible(true);
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
       for (const section of sections) {
         const element = document.getElementById(section.toLowerCase().replace(/\s+/g, "-"));
         if (element) {
@@ -63,8 +61,8 @@ function FloatingTOC() {
             onClick={() => scrollToSection(section)}
             className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-all duration-150 ${
               activeSection === section
-                ? "text-[#4F46E5] font-semibold bg-[rgba(79,70,229,0.1)] border-l-2 border-[#4F46E5]"
-                : "text-[#6B7280] hover:text-[#4F46E5]"
+                ? "text-primary font-semibold bg-primary/10 border-l-2 border-primary"
+                : "text-[#6B7280] hover:text-primary"
             }`}
           >
             {section}
@@ -91,7 +89,7 @@ function ProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 h-0.5 bg-[#4F46E5] z-50 transition-all duration-300" style={{ width: `${progress}%` }} />
+    <div className="fixed top-0 left-0 h-0.5 bg-primary z-50 transition-all duration-300" style={{ width: `${progress}%` }} />
   );
 }
 
@@ -112,11 +110,11 @@ export default function PrivacyPage() {
       <Navigation />
 
       {/* Decorative top accent */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(79,70,229,0.5)] to-transparent mt-20" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent mt-20" />
       <div
         className="w-full h-48 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(79,70,229,0.06) 0%, transparent 100%)",
+          background: "radial-gradient(ellipse 60% 40% at 50% 0%, color-mix(in srgb, var(--primary) 6%, transparent) 0%, transparent 100%)",
         }}
       />
 
@@ -133,7 +131,7 @@ export default function PrivacyPage() {
           </h1>
           <p className="text-sm text-[#6B7280] mt-3 mb-6">Last updated: January 2026</p>
           <div className="flex justify-center">
-            <div className="h-0.5 w-[60px] bg-[#4F46E5] rounded-full" />
+            <div className="h-0.5 w-[60px] bg-primary rounded-full" />
           </div>
         </div>
 
@@ -141,7 +139,7 @@ export default function PrivacyPage() {
         <div className="mt-16 space-y-1">
           {/* Information We Collect */}
           <section id="information-we-collect" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Information We Collect
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -155,40 +153,32 @@ export default function PrivacyPage() {
 
           {/* How We Use Information */}
           <section id="how-we-use-information" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               How We Use Information
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
               We use the information we collect to:
             </p>
             <ul className="pl-2 mt-4 space-y-3">
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#9CA3AF] leading-[1.9]">Provide and improve our services</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#9CA3AF] leading-[1.9]">Communicate with you about your account and respond to inquiries</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#9CA3AF] leading-[1.9]">Send promotional materials and updates (with your consent)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#9CA3AF] leading-[1.9]">Analyze usage patterns and optimize our platform</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#9CA3AF] leading-[1.9]">Comply with legal obligations</span>
-              </li>
+              {[
+                "Provide and improve our services",
+                "Communicate with you about your account and respond to inquiries",
+                "Send promotional materials and updates (with your consent)",
+                "Analyze usage patterns and optimize our platform",
+                "Comply with legal obligations",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0 mt-2.5" />
+                  <span className="text-sm text-[#9CA3AF] leading-[1.9]">{item}</span>
+                </li>
+              ))}
             </ul>
             <div className="h-px bg-[rgba(255,255,255,0.04)] my-8" />
           </section>
 
           {/* Information Sharing */}
           <section id="information-sharing" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Information Sharing
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -202,7 +192,7 @@ export default function PrivacyPage() {
 
           {/* Data Retention */}
           <section id="data-retention" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Data Retention
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
@@ -213,7 +203,7 @@ export default function PrivacyPage() {
 
           {/* Your Rights under PIPEDA */}
           <section id="your-rights-under-pipeda" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative flex items-center gap-3" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative flex items-center gap-3" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               <Shield className="w-[18px] h-[18px] text-[#22C55E]" />
               Your Rights under PIPEDA
             </h2>
@@ -221,50 +211,42 @@ export default function PrivacyPage() {
               Under the Personal Information Protection and Electronic Documents Act (PIPEDA), you have the right to:
             </p>
             <ul className="pl-2 mt-4 space-y-3">
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#C0C8D8] leading-[1.9]">Access your personal information</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#C0C8D8] leading-[1.9]">Request correction of inaccurate information</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#C0C8D8] leading-[1.9]">Request deletion of your information</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#C0C8D8] leading-[1.9]">Withdraw consent for collection and use of your information</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 bg-[#4F46E5] rounded-full flex-shrink-0 mt-2.5" />
-                <span className="text-sm text-[#C0C8D8] leading-[1.9]">File a complaint with the Privacy Commissioner of Canada</span>
-              </li>
+              {[
+                "Access your personal information",
+                "Request correction of inaccurate information",
+                "Request deletion of your information",
+                "Withdraw consent for collection and use of your information",
+                "File a complaint with the Privacy Commissioner of Canada",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0 mt-2.5" />
+                  <span className="text-sm text-[#C0C8D8] leading-[1.9]">{item}</span>
+                </li>
+              ))}
             </ul>
             <div className="h-px bg-[rgba(255,255,255,0.04)] my-8" />
           </section>
 
           {/* Contact Us */}
           <section id="contact-us" className="mt-14">
-            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-[#4F46E5] relative" style={{ boxShadow: "-4px 0 12px rgba(79,70,229,0.2)" }}>
+            <h2 className="text-xl font-bold text-white mb-5 pl-5 border-l-[3px] border-primary relative" style={{ boxShadow: "-4px 0 12px color-mix(in srgb, var(--primary) 20%, transparent)" }}>
               Contact Us
             </h2>
             <p className="text-base text-[#B0B8C8] leading-[2] mb-4">
               If you have questions about this Privacy Policy or our privacy practices, please contact us at:
             </p>
             <p className="text-base mt-6 flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#4F46E5]" />
-          <a href="mailto:info@corteron.com" className="text-[#4F46E5] hover:underline cursor-pointer font-medium">
-            info@corteron.com
+              <Mail className="w-4 h-4 text-primary" />
+              <a href="mailto:info@corteron.com" className="text-primary hover:underline cursor-pointer font-medium">
+                info@corteron.com
               </a>
             </p>
           </section>
 
           {/* Jurisdiction Card */}
-          <div className="mt-16 p-8 bg-[#0D0D1F] rounded-2xl border border-[#4F46E5]/20" style={{ boxShadow: "0 0 40px rgba(79,70,229,0.06)", borderTop: "2px solid", borderImage: "linear-gradient(to right, #4F46E5, rgba(79,70,229,0.5), transparent) 1" }}>
+          <div className="mt-16 p-8 bg-[#0D0D1F] rounded-2xl border border-primary/20" style={{ boxShadow: "0 0 40px color-mix(in srgb, var(--primary) 6%, transparent)", borderTop: "2px solid", borderImage: "linear-gradient(to right, var(--primary), color-mix(in srgb, var(--primary) 50%, transparent), transparent) 1" }}>
             <p className="text-sm text-[#D1D5DB] leading-[1.9] flex items-start gap-3">
-              <Info className="w-5 h-5 text-[#4F46E5] flex-shrink-0 mt-0.5" />
+              <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               We comply with applicable Canadian privacy laws including PIPEDA and Ontario provincial requirements. All personal information is subject to Canadian jurisdiction. Disputes arising from this privacy policy are subject to the exclusive jurisdiction of the courts of Ontario.
             </p>
           </div>
@@ -273,11 +255,11 @@ export default function PrivacyPage() {
 
       {/* Back navigation */}
       <div className="max-w-[860px] mx-auto px-6 py-8 flex items-center justify-between border-t border-[rgba(255,255,255,0.04)]">
-        <Link href="/" className="flex items-center gap-2 text-[#4F46E5] text-sm font-medium hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center gap-2 text-primary text-sm font-medium hover:opacity-80 transition-opacity">
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
-        <button onClick={scrollToTop} className="flex items-center gap-2 text-[#4F46E5] text-sm font-medium hover:opacity-80 transition-opacity">
+        <button onClick={scrollToTop} className="flex items-center gap-2 text-primary text-sm font-medium hover:opacity-80 transition-opacity">
           Back to top
           <ArrowUp className="w-4 h-4" />
         </button>

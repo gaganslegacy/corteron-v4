@@ -41,7 +41,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0]; index: numbe
   return (
     <div
       ref={cardRef}
-      className={`relative group p-6 border border-white/5 bg-[#0D0D1F] hover:border-[#4F46E5] hover:bg-[rgba(79,70,229,0.05)] hover:shadow-lg hover:shadow-[#4F46E5]/10 transition-all duration-500 ${
+      className={`relative group p-6 border border-white/5 bg-[#0D0D1F] hover:border-primary hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
       style={{ transitionDelay: `${index * 50}ms` }}
@@ -49,7 +49,7 @@ function DomainCard({ domain, index }: { domain: typeof domains[0]; index: numbe
       {/* Hover lift effect */}
       <div className="group-hover:-translate-y-1 transition-transform duration-500">
         {/* Top border that slides in on hover */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-[#4F46E5] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         
         <span className="text-sm lg:text-[14px] text-[#B45309] font-mono font-bold">{domain.number}</span>
         <h3 className="text-lg font-bold text-white mt-3 mb-2 group-hover:text-white transition-colors">{domain.name}</h3>
@@ -77,19 +77,19 @@ export function DomainsSection() {
 
   return (
     <section id="domains" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
-      {/* Gradient background: from #050510 to rgba(79,70,229,0.03) to #050510 */}
+      {/* Gradient background using CSS variable */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, #050510 0%, rgba(79, 70, 229, 0.03) 50%, #050510 100%)",
+          background: "linear-gradient(to bottom, #050510 0%, color-mix(in srgb, var(--primary) 3%, transparent) 50%, #050510 100%)",
         }}
       />
       
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             Complete Coverage
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-6">
@@ -129,7 +129,7 @@ export function DomainsSection() {
             </h3>
             <Button
               size="lg"
-              className="bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-8 h-14 text-base rounded-full"
+              className="bg-primary hover:bg-primary/90 text-white px-8 h-14 text-base rounded-full"
               asChild
             >
               <CalButton>

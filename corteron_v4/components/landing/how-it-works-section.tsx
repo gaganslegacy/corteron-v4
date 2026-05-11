@@ -60,15 +60,26 @@ function HowItWorksCard({ card, index }: { card: typeof howItWorksCards[0]; inde
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative p-7 rounded-xl border border-white/5 bg-[#0D0D1F] transition-all duration-300 hover:-translate-y-1 hover:border-[#4F46E5]/30 hover:shadow-xl hover:shadow-[rgba(79,70,229,0.08)] h-full">
+      <div
+        className="relative p-7 rounded-xl border border-white/5 bg-[#0D0D1F] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 h-full"
+        style={{
+          ["--hover-shadow" as string]: "0 20px 60px color-mix(in srgb, var(--primary) 8%, transparent)",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = "0 20px 60px color-mix(in srgb, var(--primary) 8%, transparent)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
         {/* Number badge */}
         <span className="inline-block text-[13px] font-bold font-mono text-[#B45309] mb-3">
           {card.number}
         </span>
 
         {/* Icon */}
-        <div className="w-10 h-10 rounded-lg bg-[#4F46E5]/10 border border-[#4F46E5]/20 flex items-center justify-center mb-4">
-          <Icon className="w-5 h-5 text-[#4F46E5]" />
+        <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
+          <Icon className="w-5 h-5 text-primary" />
         </div>
 
         {/* Title */}
@@ -92,10 +103,10 @@ export function HowItWorksSection() {
         {/* Header */}
         <div className="mb-16 lg:mb-20 max-w-2xl">
           <span
-            className="inline-flex items-center gap-3 text-[11px] font-mono text-[#4F46E5] mb-6 uppercase font-semibold"
+            className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold"
             style={{ letterSpacing: "0.25em" }}
           >
-            <span className="w-8 h-px bg-[#4F46E5]" />
+            <span className="w-8 h-px bg-primary" />
             HOW IT WORKS
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-4">

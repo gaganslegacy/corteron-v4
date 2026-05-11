@@ -73,7 +73,7 @@ export function SecuritySection() {
               {certifications.map((cert, index) => (
                 <span
                   key={cert}
-                  className={`px-4 py-2 border border-[#4F46E5]/30 text-sm font-mono text-[#D1D5DB] bg-[#4F46E5]/10 transition-all duration-500 ${
+                  className={`px-4 py-2 border border-primary/30 text-sm font-mono text-[#D1D5DB] bg-primary/10 transition-all duration-500 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${index * 50 + 200}ms` }}
@@ -89,13 +89,13 @@ export function SecuritySection() {
             {securityFeatures.map((feature, index) => (
               <div
                 key={feature.title}
-                className={`p-6 border border-white/5 bg-[#0D0D1F] hover:border-[#4F46E5]/30 transition-all duration-500 group ${
+                className={`p-6 border border-white/5 bg-[#0D0D1F] hover:border-primary/30 transition-all duration-500 group ${
                   isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-10 h-10 flex items-center justify-center border border-white/10 text-[#4F46E5] group-hover:bg-[#4F46E5] group-hover:text-white transition-colors duration-300">
+                  <div className="shrink-0 w-10 h-10 flex items-center justify-center border border-white/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <feature.icon className="w-5 h-5" />
                   </div>
                   <div>

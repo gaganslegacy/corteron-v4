@@ -62,7 +62,7 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm">
+          <Link href="/" className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm">
             <Image
               src="/corteron-logo.png"
               alt="Corteron"
@@ -85,14 +85,13 @@ export function Navigation() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-base transition-colors duration-300 relative group outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm ${
+                  className={`text-base transition-colors duration-300 relative group outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm ${
                     isActive ? "text-white" : "text-[#6B7280] hover:text-white"
                   }`}
                 >
                   {link.name}
-                  {/* scaleX underline: slides left-to-right on hover, always visible for active */}
                   <span
-                    className={`absolute -bottom-1 left-0 right-0 h-px bg-[#4F46E5] origin-left transition-transform duration-200 ${
+                    className={`absolute -bottom-1 left-0 right-0 h-px bg-primary origin-left transition-transform duration-200 ${
                       isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -105,7 +104,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center">
             <Button
               size="sm"
-              className={`bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              className={`bg-primary hover:bg-primary/90 text-white rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
               asChild
             >
               <CalButton>
@@ -117,7 +116,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded-md"
+            className="md:hidden p-2 text-white outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded-md"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -147,7 +146,7 @@ export function Navigation() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-5xl font-display transition-all duration-500 outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded-sm ${
+                  className={`text-5xl font-display transition-all duration-500 outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded-sm ${
                     isActive ? "text-white" : "text-[#6B7280] hover:text-white"
                   } ${
                     isMobileMenuOpen
@@ -172,7 +171,7 @@ export function Navigation() {
             style={{ transitionDelay: isMobileMenuOpen ? "450ms" : "0ms" }}
           >
             <Button
-              className="w-full bg-[#4F46E5] text-white rounded-full h-14 text-base"
+              className="w-full bg-primary text-white rounded-full h-14 text-base"
               asChild
             >
               <CalButton>

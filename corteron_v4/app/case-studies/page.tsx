@@ -54,7 +54,7 @@ function AnimatedPingRings() {
     <div className="relative w-24 h-24 flex items-center justify-center">
       {/* Ring 1 - outermost */}
       <div
-        className="absolute rounded-full border border-[#4F46E5]"
+        className="absolute rounded-full border border-primary"
         style={{
           width: "160px",
           height: "160px",
@@ -65,7 +65,7 @@ function AnimatedPingRings() {
 
       {/* Ring 2 */}
       <div
-        className="absolute rounded-full border border-[#4F46E5]"
+        className="absolute rounded-full border border-primary"
         style={{
           width: "128px",
           height: "128px",
@@ -76,7 +76,7 @@ function AnimatedPingRings() {
 
       {/* Ring 3 - innermost */}
       <div
-        className="absolute rounded-full border border-[#4F46E5]"
+        className="absolute rounded-full border border-primary"
         style={{
           width: "96px",
           height: "96px",
@@ -86,7 +86,7 @@ function AnimatedPingRings() {
       />
 
       {/* Icon */}
-      <TrendingUp className="relative w-12 h-12 text-[#4F46E5]" />
+      <TrendingUp className="relative w-12 h-12 text-primary" />
 
       <style>{`
         @keyframes ping-ring {
@@ -137,8 +137,8 @@ function PreviewCard({ result, index }: { result: typeof previewResults[0]; inde
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#B45309] to-transparent opacity-30"></div>
 
         {/* "COMING SOON" ribbon */}
-        <div className="absolute top-4 right-4 bg-[rgba(79,70,229,0.15)] border border-[#4F46E5]/30 rounded-full px-3 py-1">
-          <span className="text-[#4F46E5] text-xs font-semibold uppercase" style={{ letterSpacing: "0.1em" }}>
+        <div className="absolute top-4 right-4 bg-primary/15 border border-primary/30 rounded-full px-3 py-1">
+          <span className="text-primary text-xs font-semibold uppercase" style={{ letterSpacing: "0.1em" }}>
             Coming Soon
           </span>
         </div>
@@ -146,7 +146,7 @@ function PreviewCard({ result, index }: { result: typeof previewResults[0]; inde
         {/* Blurred content wrapper */}
         <div className="blur-[2px] opacity-70">
           {/* Type badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[rgba(79,70,229,0.1)] border border-[#4F46E5]/20 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full mb-6">
             <span className="text-[#818CF8] text-xs font-medium">{result.type}</span>
           </div>
 
@@ -196,7 +196,7 @@ function DocumentationCard({ item, index }: { item: typeof documentationItems[0]
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="bg-[#0D0D1F] rounded-xl p-6 border border-white/5 hover:border-white/10 transition-colors">
-        <Icon className="w-8 h-8 text-[#4F46E5] mb-4" />
+        <Icon className="w-8 h-8 text-primary mb-4" />
         <h3 className="text-base font-bold text-white mt-4">
           {item.title}
         </h3>
@@ -220,7 +220,6 @@ export default function CaseStudiesPage() {
     if (!email) return;
 
     setIsLoading(true);
-    // Simulate submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setSubmitted(true);
     setIsLoading(false);
@@ -238,12 +237,12 @@ export default function CaseStudiesPage() {
 
       {/* Hero */}
       <section className="relative py-32 lg:py-40 overflow-hidden">
-        {/* Radial indigo glow behind hero */}
+        {/* Radial brand glow behind hero */}
         <div className="absolute inset-0 top-1/4 pointer-events-none">
           <div
             className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -257,14 +256,14 @@ export default function CaseStudiesPage() {
                 animation: "slideInDown 0.6s ease-out",
               }}
             >
-              <span className="w-6 h-px bg-[#4F46E5] hidden md:block"></span>
+              <span className="w-6 h-px bg-primary hidden md:block"></span>
               <span
-                className="text-xs font-mono text-[#4F46E5] uppercase"
+                className="text-xs font-mono text-primary uppercase"
                 style={{ letterSpacing: "0.3em" }}
               >
                 Results
               </span>
-              <span className="w-6 h-px bg-[#4F46E5] hidden md:block"></span>
+              <span className="w-6 h-px bg-primary hidden md:block"></span>
             </div>
 
             {/* H1 */}
@@ -273,7 +272,7 @@ export default function CaseStudiesPage() {
               style={{ letterSpacing: "-0.02em" }}
             >
               What Corteron Does in the Real{" "}
-              <span className="text-[#4F46E5]">World.</span>
+              <span className="text-primary">World.</span>
             </h1>
 
             {/* Subtext */}
@@ -294,9 +293,9 @@ export default function CaseStudiesPage() {
       <section className="relative py-24 lg:py-32 flex items-center justify-center" ref={scrollRef}>
         <div className="max-w-[600px] mx-auto px-6 lg:px-12 w-full">
           <div
-            className="bg-[#0D0D1F] rounded-2xl p-14 border border-[#4F46E5]/20"
+            className="bg-[#0D0D1F] rounded-2xl p-14 border border-primary/20"
             style={{
-              boxShadow: "0 0 100px rgba(79, 70, 229, 0.12)",
+              boxShadow: "0 0 100px color-mix(in srgb, var(--primary) 12%, transparent)",
             }}
           >
             {/* Animated ping rings + icon */}
@@ -334,19 +333,13 @@ export default function CaseStudiesPage() {
                     placeholder="your@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-[#374151] focus:outline-none focus:border-[#4F46E5]/50 transition-all"
-                    style={{
-                      boxShadow:
-                        "inset 0 0 0 3px rgba(79, 70, 229, 0) transition-shadow",
-                    }}
+                    className="flex-1 bg-[rgba(255,255,255,0.03)] border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-[#374151] focus:outline-none transition-all"
                     onFocus={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "inset 0 0 0 3px rgba(79, 70, 229, 0.1)";
-                      e.currentTarget.style.borderColor = "rgba(79, 70, 229, 0.5)";
+                      e.currentTarget.style.boxShadow = "inset 0 0 0 3px color-mix(in srgb, var(--primary) 10%, transparent)";
+                      e.currentTarget.style.borderColor = "color-mix(in srgb, var(--primary) 50%, transparent)";
                     }}
                     onBlur={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "inset 0 0 0 3px rgba(79, 70, 229, 0)";
+                      e.currentTarget.style.boxShadow = "none";
                       e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
                     }}
                     required
@@ -354,18 +347,12 @@ export default function CaseStudiesPage() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-6 py-3.5 rounded-xl text-sm font-semibold transition-all flex-shrink-0 disabled:opacity-50"
-                    style={{
-                      boxShadow:
-                        "0 0 0px rgba(79, 70, 229, 0.4) transition-shadow",
-                    }}
+                    className="bg-primary hover:bg-primary/90 text-white px-6 py-3.5 rounded-xl text-sm font-semibold transition-all flex-shrink-0 disabled:opacity-50"
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "0 0 30px rgba(79, 70, 229, 0.4)";
+                      e.currentTarget.style.boxShadow = "0 0 30px color-mix(in srgb, var(--primary) 40%, transparent)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "0 0 0px rgba(79, 70, 229, 0.4)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     {isLoading ? "Subscribing..." : "Notify"}
@@ -399,14 +386,14 @@ export default function CaseStudiesPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           {/* Section label */}
           <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="w-8 h-px bg-[#4F46E5]"></span>
+            <span className="w-8 h-px bg-primary"></span>
             <span
-              className="text-xs font-mono text-[#4F46E5] uppercase"
+              className="text-xs font-mono text-primary uppercase"
               style={{ letterSpacing: "0.3em" }}
             >
               Early Signals
             </span>
-            <span className="w-8 h-px bg-[#4F46E5]"></span>
+            <span className="w-8 h-px bg-primary"></span>
           </div>
 
           {/* H2 */}
@@ -453,18 +440,18 @@ export default function CaseStudiesPage() {
 
       {/* CTA Section */}
       <section className="relative py-32">
-        {/* Radial indigo glow */}
+        {/* Radial brand glow */}
         <div
           className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%)",
           }}
         />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           {/* Label */}
           <span
-            className="text-xs font-mono text-[#4F46E5] uppercase"
+            className="text-xs font-mono text-primary uppercase"
             style={{ letterSpacing: "0.15em" }}
           >
             Coming Soon
@@ -486,7 +473,7 @@ export default function CaseStudiesPage() {
           {/* Scroll up link */}
           <button
             onClick={scrollToTop}
-            className="mt-8 inline-flex items-center gap-2 text-[#4F46E5] hover:text-white transition-colors group"
+            className="mt-8 inline-flex items-center gap-2 text-primary hover:text-white transition-colors group"
           >
             <svg
               className="w-4 h-4 transition-transform group-hover:-translate-y-1"

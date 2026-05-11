@@ -38,7 +38,7 @@ function BusinessCard({
   return (
     <div
       ref={cardRef}
-      className={`p-8 border border-white/5 bg-[#0D0D1F] hover:border-[#4F46E5]/30 transition-all duration-500 group ${
+      className={`p-8 border border-white/5 bg-[#0D0D1F] hover:border-primary/30 transition-all duration-500 group ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
       style={{ transitionDelay: `${index * 50}ms` }}
@@ -72,8 +72,8 @@ export function WhoItIsForSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             Who It Is For
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">
@@ -92,7 +92,7 @@ export function WhoItIsForSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             size="lg"
-            className="bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-8 h-14 text-base rounded-full"
+            className="bg-primary hover:bg-primary/90 text-white px-8 h-14 text-base rounded-full"
             asChild
           >
             <CalButton>

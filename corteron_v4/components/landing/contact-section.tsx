@@ -108,8 +108,8 @@ export function ContactSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             Get Started
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">
@@ -133,7 +133,7 @@ export function ContactSection() {
                 "Clear timeline and pricing confirmed on the call",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#4F46E5] mt-0.5 shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                   <span className="text-[#D1D5DB]">{item}</span>
                 </li>
               ))}
@@ -157,7 +157,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-[#4F46E5] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-primary focus:outline-none transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -169,7 +169,7 @@ export function ContactSection() {
                   value={formData.businessType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white focus:border-[#4F46E5] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white focus:border-primary focus:outline-none transition-colors"
                 >
                   <option value="">Select a business type</option>
                   <option value="local-service">Local Service</option>
@@ -190,7 +190,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-[#4F46E5] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-primary focus:outline-none transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -202,7 +202,7 @@ export function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-[#4F46E5] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-primary focus:outline-none transition-colors"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -214,7 +214,7 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-[#4F46E5] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-[#0D0D1F] border border-white/10 text-white placeholder-[#6B7280] focus:border-primary focus:outline-none transition-colors"
                   placeholder="Tell us about your business. What are you trying to automate?"
                 />
               </div>
@@ -232,7 +232,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white h-14 text-base rounded-full disabled:opacity-50"
+                className="w-full bg-primary hover:bg-primary/90 text-white h-14 text-base rounded-full disabled:opacity-50"
               >
                 {isLoading ? "Sending..." : "Send Message"}
               </Button>

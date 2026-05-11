@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
 import {
   Accordion,
   AccordionItem,
@@ -79,7 +78,7 @@ export function PricingFAQ() {
             }}
           >
             <AccordionTrigger
-              className="px-6 py-5 text-[16px] font-medium text-white hover:no-underline hover:text-white flex items-center justify-between [&[data-state=open]>svg]:rotate-180 [&>svg]:text-[#4F46E5] [&>svg]:transition-transform [&>svg]:duration-300"
+              className="px-6 py-5 text-[16px] font-medium text-white hover:no-underline hover:text-white flex items-center justify-between [&[data-state=open]>svg]:rotate-180 [&>svg]:text-primary [&>svg]:transition-transform [&>svg]:duration-300"
             >
               {faq.question}
             </AccordionTrigger>

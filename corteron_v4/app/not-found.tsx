@@ -8,7 +8,7 @@ export default function NotFound() {
       
       <div className="flex-1 flex items-center justify-center px-6 lg:px-12 py-32">
         <div className="text-center">
-          <h1 className="text-9xl lg:text-[120px] font-display text-[#4F46E5] mb-6 leading-none">
+          <h1 className="text-9xl lg:text-[120px] font-display text-primary mb-6 leading-none">
             404
           </h1>
           <p className="text-3xl lg:text-5xl font-display text-white mb-8">
@@ -16,7 +16,7 @@ export default function NotFound() {
           </p>
           <a
             href="/"
-            className="inline-block px-8 py-4 bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white font-medium rounded-full transition-colors"
+            className="inline-block px-8 py-4 bg-primary hover:bg-primary/90 text-white font-medium rounded-full transition-colors"
           >
             Go Home
           </a>

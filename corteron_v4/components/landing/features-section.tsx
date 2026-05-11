@@ -39,7 +39,6 @@ const features = [
 function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const Icon = feature.icon;
   const isEven = index % 2 === 0;
 
   useEffect(() => {
@@ -75,15 +74,15 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
           </div>
           
           <div className="hidden lg:flex flex-col gap-2 flex-1">
-            <div className="w-12 h-1 rounded-full bg-[#4F46E5]" />
+            <div className="w-12 h-1 rounded-full bg-primary" />
           </div>
         </div>
 
         {/* Content side */}
         <div className={`flex flex-col gap-3 ${!isEven ? 'lg:text-right' : ''}`}>
-          {/* Indigo left border accent */}
+          {/* Primary left border accent */}
           <div className="flex items-start gap-4">
-            <div className={`w-1 h-20 rounded-full bg-[#4F46E5] shrink-0 ${!isEven ? 'order-2' : ''}`} />
+            <div className={`w-1 h-20 rounded-full bg-primary shrink-0 ${!isEven ? 'order-2' : ''}`} />
             <div className={!isEven ? 'order-1 text-right' : ''}>
               <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                 {feature.title}
@@ -124,8 +123,8 @@ export function FeaturesSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             How It Works
           </span>
           <h2
@@ -143,7 +142,7 @@ export function FeaturesSection() {
         {/* Features List with vertical line */}
         <div className="relative">
           {/* Vertical center line on desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#4F46E5] to-transparent" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent" />
           
           <div className="flex flex-col">
             {features.map((feature, index) => (

@@ -29,14 +29,14 @@ export function TestimonialsSection() {
           <div className="lg:col-span-8">
             <blockquote>
               <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
-                "{activeTestimonial.quote}"
+                &ldquo;{activeTestimonial.quote}&rdquo;
               </p>
             </blockquote>
 
             {/* Author */}
             <div className="mt-12 flex items-center gap-6">
-              <div className="w-16 h-16 rounded-full bg-[#4F46E5]/10 border border-[#4F46E5]/30 flex items-center justify-center">
-                <span className="font-display text-2xl text-[#4F46E5]">
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-primary">
                   {activeTestimonial.author.charAt(0)}
                 </span>
               </div>

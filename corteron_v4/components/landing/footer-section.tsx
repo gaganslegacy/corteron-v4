@@ -91,7 +91,7 @@ export function FooterSection() {
               <h3 className="text-sm font-medium mb-6 text-white uppercase tracking-widest">Get Started</h3>
               <Button
                 size="lg"
-                className="w-full bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-8 h-12 text-sm rounded-full mb-6"
+                className="w-full bg-primary hover:bg-primary/90 text-white px-8 h-12 text-sm rounded-full mb-6"
                 asChild
               >
                 <CalButton>

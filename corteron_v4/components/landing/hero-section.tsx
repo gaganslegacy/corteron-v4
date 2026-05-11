@@ -15,12 +15,12 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Radial indigo glow behind headline */}
+      {/* Radial brand glow behind headline */}
       <div className="absolute inset-0 top-1/4 pointer-events-none">
         <div 
           className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[800px] h-[600px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)",
+            background: "radial-gradient(circle, color-mix(in srgb, var(--primary) 15%, transparent) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -79,9 +79,9 @@ export function HeroSection() {
             <span className="block">The machine that</span>
             <span className="block">
               runs your{" "}
-              <span className="relative inline-block text-[#4F46E5]">
+              <span className="relative inline-block text-primary">
                 business.
-                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#4F46E5] rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary rounded-full"></span>
               </span>
             </span>
           </h1>
@@ -105,7 +105,7 @@ export function HeroSection() {
           >
             <Button 
               size="lg" 
-              className="bg-[#4F46E5] hover:bg-[#4F46E5]/90 text-white px-8 py-4 h-auto text-base rounded-full group pulse-glow"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 h-auto text-base rounded-full group pulse-glow"
               asChild
             >
               <CalButton>
@@ -150,7 +150,7 @@ export function HeroSection() {
                   {item.text}
                 </span>
                 {item.separator && (
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                 )}
               </div>
             ))}

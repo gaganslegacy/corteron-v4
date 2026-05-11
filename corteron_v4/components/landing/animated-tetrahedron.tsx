@@ -2,6 +2,18 @@
 
 import { useEffect, useRef } from "react";
 
+function getPrimaryRGB(): [number, number, number] {
+  if (typeof window === "undefined") return [79, 70, 229];
+  const color = getComputedStyle(document.documentElement).getPropertyValue("--primary").trim();
+  if (!color) return [79, 70, 229];
+  const hex = color.replace("#", "");
+  return [
+    parseInt(hex.substring(0, 2), 16),
+    parseInt(hex.substring(2, 4), 16),
+    parseInt(hex.substring(4, 6), 16),
+  ];
+}
+
 export function AnimatedTetrahedron() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
@@ -13,6 +25,7 @@ export function AnimatedTetrahedron() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const [r, g, b] = getPrimaryRGB();
     const chars = "░▒▓█▀▄▌▐│─┤├┴┬╭╮╰╯";
     let time = 0;
 
@@ -27,26 +40,23 @@ export function AnimatedTetrahedron() {
     resize();
     window.addEventListener("resize", resize);
 
-    // Tetrahedron vertices
     const vertices = [
-      { x: 0, y: 1, z: 0 },           // Top
-      { x: -0.943, y: -0.333, z: -0.5 }, // Bottom left back
-      { x: 0.943, y: -0.333, z: -0.5 },  // Bottom right back
-      { x: 0, y: -0.333, z: 1 },         // Bottom front
+      { x: 0, y: 1, z: 0 },
+      { x: -0.943, y: -0.333, z: -0.5 },
+      { x: 0.943, y: -0.333, z: -0.5 },
+      { x: 0, y: -0.333, z: 1 },
     ];
 
-    // Edges connecting vertices
     const edges = [
-      [0, 1], [0, 2], [0, 3], // Top to bottom vertices
-      [1, 2], [2, 3], [3, 1], // Bottom triangle
+      [0, 1], [0, 2], [0, 3],
+      [1, 2], [2, 3], [3, 1],
     ];
 
-    // Faces for filling with points
     const faces = [
-      [0, 1, 2], // Back face
-      [0, 2, 3], // Right face
-      [0, 3, 1], // Left face
-      [1, 3, 2], // Bottom face
+      [0, 1, 2],
+      [0, 2, 3],
+      [0, 3, 1],
+      [1, 3, 2],
     ];
 
     const rotateY = (point: { x: number; y: number; z: number }, angle: number) => ({
@@ -81,7 +91,6 @@ export function AnimatedTetrahedron() {
 
       const points: { x: number; y: number; z: number; char: string }[] = [];
 
-      // Generate points along edges
       edges.forEach(([i, j]) => {
         const v1 = vertices[i];
         const v2 = vertices[j];
@@ -93,7 +102,6 @@ export function AnimatedTetrahedron() {
             z: v1.z + (v2.z - v1.z) * t,
           };
 
-          // Apply rotations
           point = rotateY(point, time * 0.4);
           point = rotateX(point, time * 0.3);
           point = rotateZ(point, time * 0.2);
@@ -110,7 +118,6 @@ export function AnimatedTetrahedron() {
         }
       });
 
-      // Generate points on faces for a filled look
       faces.forEach(([i, j, k]) => {
         const v1 = vertices[i];
         const v2 = vertices[j];
@@ -125,7 +132,6 @@ export function AnimatedTetrahedron() {
               z: v1.z * u + v2.z * v + v3.z * w,
             };
 
-            // Apply rotations
             point = rotateY(point, time * 0.4);
             point = rotateX(point, time * 0.3);
             point = rotateZ(point, time * 0.2);
@@ -143,13 +149,11 @@ export function AnimatedTetrahedron() {
         }
       });
 
-      // Sort by z for depth
       points.sort((a, b) => a.z - b.z);
 
-      // Draw points
       points.forEach((point) => {
         const alpha = 0.15 + (point.z + 1.5) * 0.25;
-        ctx.fillStyle = `rgba(79, 70, 229, ${Math.min(alpha, 0.9)})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(alpha, 0.9)})`;
         ctx.fillText(point.char, point.x, point.y);
       });
 

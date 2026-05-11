@@ -170,7 +170,7 @@ export function DevelopersSection() {
                   >
                     {example.label}
                     {activeTab === idx && (
-                      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#4F46E5]" />
+                      <span className="absolute bottom-0 left-0 right-0 h-px bg-primary" />
                     )}
                   </button>
                 ))}
@@ -219,7 +219,7 @@ export function DevelopersSection() {
             
             {/* Links */}
             <div className="mt-6 flex items-center gap-6 text-sm">
-              <a href="#" className="text-[#4F46E5] hover:underline underline-offset-4">
+              <a href="#" className="text-primary hover:underline underline-offset-4">
                 Read the docs
               </a>
               <span className="text-white/20">|</span>

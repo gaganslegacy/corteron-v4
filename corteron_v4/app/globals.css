@@ -11,20 +11,20 @@
   --card-foreground: #FFFFFF;
   --popover: #0D0D1F;
   --popover-foreground: #FFFFFF;
-  --primary: #4F46E5;
+  --primary: #4F46E5; /* fallback only — overridden at runtime by layout.tsx from config/brand.ts */
   --primary-foreground: #FFFFFF;
   --secondary: #0A0A1A;
   --secondary-foreground: #D1D5DB;
   --muted: #0A0A1A;
   --muted-foreground: #9CA3AF;
-  --accent: #4F46E5;
+  --accent: var(--primary);
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --border: rgba(255, 255, 255, 0.05);
   --input: #0A0A1A;
-  --ring: #4F46E5;
-  --chart-1: #4F46E5;
+  --ring: var(--primary);
+  --chart-1: var(--primary);
   --chart-2: #6366F1;
   --chart-3: #818CF8;
   --chart-4: #A5B4FC;
@@ -32,12 +32,12 @@
   --radius: 0.25rem;
   --sidebar: #0A0A1A;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #4F46E5;
+  --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #0D0D1F;
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: rgba(255, 255, 255, 0.05);
-  --sidebar-ring: #4F46E5;
+  --sidebar-ring: var(--primary);
   
   /* Custom Corteron Colors */
   --surface: #0A0A1A;
@@ -45,6 +45,13 @@
   --headings: #FFFFFF;
   --subtle-text: #6B7280;
   --gold-highlight: #B45309;
+
+  /* Derived primary glow helpers — used by button shadows and animations */
+  --primary-glow-08: color-mix(in srgb, var(--primary) 8%, transparent);
+  --primary-glow-25: color-mix(in srgb, var(--primary) 25%, transparent);
+  --primary-glow-30: color-mix(in srgb, var(--primary) 30%, transparent);
+  --primary-glow-40: color-mix(in srgb, var(--primary) 40%, transparent);
+  --primary-glow-50: color-mix(in srgb, var(--primary) 50%, transparent);
 }
 
 @theme inline {
@@ -101,7 +108,7 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(79, 70, 229, 0.5);
+  background: var(--primary-glow-50);
 }
 
 @layer base {
@@ -138,7 +145,7 @@
   select:focus-visible,
   [tabindex]:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #050510, 0 0 0 4px #4F46E5;
+    box-shadow: 0 0 0 2px #050510, 0 0 0 4px var(--primary);
   }
 }
 
@@ -151,7 +158,7 @@
     left: 0;
     right: 0;
     height: 65vh;
-    background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(79, 70, 229, 0.08), transparent);
+    background: radial-gradient(ellipse 80% 40% at 50% 0%, var(--primary-glow-08), transparent);
     pointer-events: none;
     z-index: 0;
   }
@@ -188,7 +195,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: linear-gradient(to bottom, transparent, rgba(79, 70, 229, 0.02), transparent);
+    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--primary) 2%, transparent), transparent);
     pointer-events: none;
   }
 
@@ -284,10 +291,10 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+      box-shadow: 0 0 20px var(--primary-glow-30);
     }
     50% {
-      box-shadow: 0 0 40px rgba(79, 70, 229, 0.5);
+      box-shadow: 0 0 40px var(--primary-glow-50);
     }
   }
 

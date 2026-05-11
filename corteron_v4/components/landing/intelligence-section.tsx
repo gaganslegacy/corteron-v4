@@ -71,7 +71,7 @@ function IntelligenceLevel({
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="text-center lg:text-left">
-        <div className="text-6xl font-display text-[#4F46E5] mb-4">{level.number}</div>
+        <div className="text-6xl font-display text-primary mb-4">{level.number}</div>
         <h3 className="text-2xl font-bold text-white mb-3">{level.title}</h3>
         <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">{level.description}</p>
         <span className={`inline-block px-3 py-1 text-xs font-mono text-white rounded ${level.statusColor}`}>
@@ -106,8 +106,8 @@ export function IntelligenceSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-[#4F46E5] mb-6 uppercase tracking-widest">
-            <span className="w-8 h-px bg-[#4F46E5]" />
+          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+            <span className="w-8 h-px bg-primary" />
             The Intelligence
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-6">
