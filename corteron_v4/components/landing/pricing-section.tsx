@@ -89,19 +89,16 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
   return (
     <div
       ref={cardRef}
-      className={`relative transition-all duration-700 ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-8"
-      }`}
+      className={`relative blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       <div
         className={`relative p-8 rounded-2xl h-full flex flex-col transition-all duration-300 ${
           plan.popular
             ? "border-2 border-primary bg-[#0D0D1F] lg:scale-105 shadow-2xl shadow-primary/20"
-            : "border border-white/10 bg-[#0D0D1F] hover:border-white/20 hover:-translate-y-1"
+            : "card-premium hover:-translate-y-[6px]"
         }`}
+        style={plan.popular ? { boxShadow: "0 0 0 1px rgba(79,70,229,0.5), 0 24px 48px rgba(79,70,229,0.2), inset 0 1px 0 rgba(255,255,255,0.08)" } : undefined}
       >
         {/* Subtle grid overlay for popular card */}
         {plan.popular && (
@@ -167,7 +164,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
                 </span>
               </div>
             )}
-            <p className="text-[14px] text-[#6B7280] mt-2 leading-relaxed">
+            <p className="text-[14px] text-[#6B7280] mt-2 leading-[1.85]">
               {plan.description}
             </p>
           </div>
@@ -187,7 +184,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
             <CalButton
               className={`w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all flex items-center justify-center gap-2 group ${
                 plan.popular
-                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50"
+                  ? "bg-primary text-white hover:bg-primary/90 btn-primary-glow"
                   : "border border-white/20 text-white hover:border-primary hover:bg-primary/10"
               }`}
             >
@@ -199,7 +196,7 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
               href={plan.ctaLink}
               className={`w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all flex items-center justify-center gap-2 group ${
                 plan.popular
-                  ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/30 hover:shadow-primary/50"
+                  ? "bg-primary text-white hover:bg-primary/90 btn-primary-glow"
                   : "border border-white/20 text-white hover:border-primary hover:bg-primary/10"
               }`}
             >
@@ -214,24 +211,39 @@ function PricingCard({ plan, index }: { plan: typeof plans[0]; index: number }) 
 }
 
 export function PricingSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="pricing" className="relative py-32 lg:py-40 border-t border-white/5">
+    <section id="pricing" ref={sectionRef} className="relative py-32 lg:py-40">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
         {/* Header */}
-        <div className="mb-16 lg:mb-20 text-center max-w-2xl mx-auto">
+        <div className={`mb-16 lg:mb-20 text-center max-w-2xl mx-auto blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
           <span
             className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold"
-            style={{ letterSpacing: "0.25em" }}
+            style={{ letterSpacing: "0.3em" }}
           >
             <span className="w-8 h-px bg-primary" />
             PRICING
             <span className="w-8 h-px bg-primary" />
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-4">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white mb-5">
             Simple Pricing. Serious Results.
           </h2>
-          <p className="text-lg text-[#9CA3AF]">
+          <p className="text-lg text-[#9CA3AF] leading-[1.85]">
             No setup fees buried in the contract. No lock-ins on day one.
           </p>
           {/* Trust signals */}
@@ -246,19 +258,19 @@ export function PricingSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <PricingCard key={plan.name} plan={plan} index={index} />
           ))}
         </div>
 
         {/* 15 domains callout */}
-        <div className="mt-12 p-6 rounded-xl border-l-[6px] border-primary bg-[#0D0D1F] border border-white/5">
+        <div className="mt-12 p-6 rounded-2xl border-l-[6px] border-primary bg-[#0D0D1F] border border-white/5" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }}>
           <div className="flex items-start gap-3">
             <div className="w-5 h-5 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mt-0.5 shrink-0">
               <div className="w-2 h-2 rounded-full bg-primary" />
             </div>
-            <p className="text-[15px] text-[#D1D5DB] leading-relaxed">
+            <p className="text-[15px] text-[#D1D5DB] leading-[1.85]">
               Every Corteron plan covers all 15 business domains. The difference between plans is depth of automation and level of support, not the scope of what gets covered.
             </p>
           </div>

@@ -23,11 +23,11 @@ const results = [
   },
 ];
 
-function ResultCard({ 
-  result, 
-  index 
-}: { 
-  result: typeof results[0]; 
+function ResultCard({
+  result,
+  index
+}: {
+  result: typeof results[0];
   index: number;
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,10 +48,8 @@ function ResultCard({
   return (
     <div
       ref={cardRef}
-      className={`p-8 lg:p-12 border border-white/5 bg-[#0D0D1F] transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`card-premium p-8 lg:p-12 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
       <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-mono rounded mb-4">
         {result.badge}
@@ -60,7 +58,7 @@ function ResultCard({
         {result.stat}
       </div>
       <h3 className="text-xl font-bold text-white mb-4">{result.label}</h3>
-      <p className="text-[#9CA3AF]">{result.description}</p>
+      <p className="text-[#9CA3AF] leading-[1.85]">{result.description}</p>
     </div>
   );
 }
@@ -83,20 +81,21 @@ export function ResultsSection() {
 
   return (
     <section id="results" ref={sectionRef} className="relative py-32 lg:py-40">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+        <div className={`mb-16 lg:mb-24 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+          <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
             <span className="w-8 h-px bg-primary" />
             Early Results
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white mb-5">
             What Happens When Corteron Runs Your Business.
           </h2>
         </div>
 
         {/* Results Grid */}
-        <div className="grid md:grid-cols-3 gap-4 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           {results.map((result, index) => (
             <ResultCard key={result.badge} result={result} index={index} />
           ))}

@@ -40,11 +40,11 @@ const comparison = [
   },
 ];
 
-function ComparisonColumn({ 
-  data, 
-  index 
-}: { 
-  data: typeof comparison[0]; 
+function ComparisonColumn({
+  data,
+  index
+}: {
+  data: typeof comparison[0];
   index: number;
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -65,45 +65,50 @@ function ComparisonColumn({
   return (
     <div
       ref={colRef}
-      className={`relative p-6 lg:p-10 border transition-all duration-700 rounded-xl ${
-        data.isHighlighted
-          ? "border-2 border-primary bg-primary/5 lg:scale-105 lg:shadow-2xl lg:shadow-primary/40 py-10"
-          : `border border-white/5 bg-[#0D0D1F] hover:border-white/10 py-6 ${data.icon === 'x' ? 'bg-[rgba(220,38,38,0.03)]' : ''}`
-      } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`relative blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
-      {/* RECOMMENDED badge for Corteron */}
-      {data.isHighlighted && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#B45309] text-white text-xs font-mono font-bold rounded-full uppercase">
-          RECOMMENDED
-        </div>
-      )}
-
-      <div className="flex items-center gap-3 mb-8">
-        <h3 className={`text-lg lg:text-xl font-bold ${data.isHighlighted ? "text-white" : "text-[#9CA3AF]"}`}>
-          {data.column}
-        </h3>
-        {data.icon === "x" ? (
-          <X className={`w-6 h-6 font-bold ${data.isHighlighted ? "text-[#DC2626]" : "text-[#DC2626]"}`} strokeWidth={3} />
-        ) : (
-          <CheckCircle className="w-6 h-6 text-primary" strokeWidth={2} />
+      <div
+        className={`relative p-6 lg:p-10 border transition-all duration-300 rounded-2xl h-full ${
+          data.isHighlighted
+            ? "border-2 border-primary bg-primary/5 lg:scale-105 lg:shadow-2xl lg:shadow-primary/40 py-10"
+            : `border border-white/5 bg-[#0D0D1F] hover:-translate-y-[6px] hover:border-white/10 hover:shadow-[0_24px_48px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] py-6 ${data.icon === "x" ? "bg-[rgba(220,38,38,0.03)]" : ""}`
+        }`}
+        style={{ boxShadow: data.isHighlighted ? undefined : "inset 0 1px 0 rgba(255,255,255,0.06)" }}
+      >
+        {/* RECOMMENDED badge for Corteron */}
+        {data.isHighlighted && (
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#B45309] text-white text-xs font-mono font-bold rounded-full uppercase">
+            RECOMMENDED
+          </div>
         )}
-      </div>
 
-      <ul className="space-y-4">
-        {data.points.map((point) => (
-          <li key={point} className="flex items-start gap-3">
-            {data.icon === "x" ? (
-              <X className="w-5 h-5 text-[#DC2626] mt-0.5 shrink-0 font-bold" strokeWidth={3} />
-            ) : (
-              <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" strokeWidth={2} />
-            )}
-            <span className={`text-sm lg:text-base ${data.isHighlighted ? "text-white" : "text-[#9CA3AF]"}`}>
-              {point}
-            </span>
-          </li>
-        ))}
-      </ul>
+        <div className="flex items-center gap-3 mb-8">
+          <h3 className={`text-lg lg:text-xl font-bold ${data.isHighlighted ? "text-white" : "text-[#9CA3AF]"}`}>
+            {data.column}
+          </h3>
+          {data.icon === "x" ? (
+            <X className="w-6 h-6 text-[#DC2626]" strokeWidth={3} />
+          ) : (
+            <CheckCircle className="w-6 h-6 text-primary" strokeWidth={2} />
+          )}
+        </div>
+
+        <ul className="space-y-4">
+          {data.points.map((point) => (
+            <li key={point} className="flex items-start gap-3">
+              {data.icon === "x" ? (
+                <X className="w-5 h-5 text-[#DC2626] mt-0.5 shrink-0 font-bold" strokeWidth={3} />
+              ) : (
+                <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" strokeWidth={2} />
+              )}
+              <span className={`text-sm lg:text-base leading-[1.85] ${data.isHighlighted ? "text-white" : "text-[#9CA3AF]"}`}>
+                {point}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -126,20 +131,21 @@ export function ComparisonSection() {
 
   return (
     <section id="comparison" ref={sectionRef} className="relative py-32 lg:py-40">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+        <div className={`mb-16 lg:mb-24 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+          <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
             <span className="w-8 h-px bg-primary" />
             Why Corteron
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white">
             Not a Tool. Not an Agency. An Operating System.
           </h2>
         </div>
 
         {/* Comparison Grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8">
           {comparison.map((col, index) => (
             <ComparisonColumn key={col.column} data={col} index={index} />
           ))}

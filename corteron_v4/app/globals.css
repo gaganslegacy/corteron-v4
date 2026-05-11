@@ -98,17 +98,23 @@
 
 /* ─── Scrollbar ─────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #050510;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e1e3a;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-glow-50);
+  background: var(--primary);
+}
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background: rgba(79, 70, 229, 0.3);
+  color: white;
 }
 
 @layer base {
@@ -122,14 +128,25 @@
     scroll-behavior: smooth;
   }
 
+  /* ─── Base body ───────────────────────────────────────── */
+  body {
+    line-height: 1.85;
+  }
+
   /* ─── Typography tightening ───────────────────────────── */
   h1 {
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    font-weight: 800;
   }
   h2 {
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-weight: 800;
+  }
+  h3 {
+    letter-spacing: -0.01em;
+    font-weight: 700;
   }
 
   /* ─── SVG icon stroke-width ───────────────────────────── */
@@ -182,6 +199,65 @@
   /* ─── Card inset highlight ────────────────────────────── */
   [class*="border-white/5"] {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* ─── Premium card ────────────────────────────────────── */
+  .card-premium {
+    background: #0D0D1F;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-premium:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* ─── Primary button glow ─────────────────────────────── */
+  .btn-primary-glow {
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.5), 0 4px 16px rgba(79, 70, 229, 0.3);
+    transition: all 0.2s;
+  }
+  .btn-primary-glow:hover {
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.8), 0 8px 32px rgba(79, 70, 229, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Blur-in scroll animation ────────────────────────── */
+  .blur-in-hidden {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(8px);
+  }
+  .blur-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ─── Section divider ─────────────────────────────────── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.04) 80%, transparent);
+  }
+
+  /* ─── Form input focus glow ───────────────────────────── */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.5), 0 0 0 4px rgba(79, 70, 229, 0.12);
+    background: rgba(79, 70, 229, 0.04);
+    border-color: rgba(79, 70, 229, 0.5);
+    transition: all 0.2s;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #4B5563;
   }
 
   /* ─── Section fade transitions ────────────────────────── */

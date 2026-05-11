@@ -36,26 +36,23 @@ export function InfrastructureSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
-          <div
-            className={`transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-            }`}
-          >
-            <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-              <span className="w-8 h-px bg-foreground/30" />
+          <div className={`blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+            <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
+              <span className="w-8 h-px bg-primary" />
               Infrastructure
             </span>
-            <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
+            <h2 className="text-[clamp(36px,4.5vw,64px)] font-display tracking-tight mb-5">
               Global by
               <br />
               default.
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Deploy once, run everywhere. Our edge network spans 17 data centers 
+            <p className="text-xl text-muted-foreground leading-[1.85] mb-12">
+              Deploy once, run everywhere. Our edge network spans 17 data centers
               across 6 continents, delivering sub-50ms latency to 99% of the world.
             </p>
 
@@ -77,12 +74,8 @@ export function InfrastructureSection() {
           </div>
 
           {/* Right: Location list */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-            }`}
-          >
-            <div className="border border-white/5 bg-[#0A0A1A]">
+          <div className={`blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`} style={{ transitionDelay: "200ms" }}>
+            <div className="card-premium overflow-hidden">
               {/* Header */}
               <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
                 <span className="text-sm font-mono text-[#9CA3AF]">Edge Network</span>
@@ -102,7 +95,7 @@ export function InfrastructureSection() {
                     }`}
                   >
                     <div className="flex items-center gap-4">
-                      <span 
+                      <span
                         className={`w-2 h-2 rounded-full transition-colors duration-300 ${
                           activeLocation === index ? "bg-primary" : "bg-white/20"
                         }`}

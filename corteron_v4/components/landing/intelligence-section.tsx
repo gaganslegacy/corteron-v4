@@ -40,11 +40,11 @@ const levels = [
   },
 ];
 
-function IntelligenceLevel({ 
-  level, 
-  index 
-}: { 
-  level: typeof levels[0]; 
+function IntelligenceLevel({
+  level,
+  index
+}: {
+  level: typeof levels[0];
   index: number;
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -65,15 +65,13 @@ function IntelligenceLevel({
   return (
     <div
       ref={cardRef}
-      className={`flex-1 transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`flex-1 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
       <div className="text-center lg:text-left">
         <div className="text-6xl font-display text-primary mb-4">{level.number}</div>
-        <h3 className="text-2xl font-bold text-white mb-3">{level.title}</h3>
-        <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">{level.description}</p>
+        <h3 className="text-[clamp(20px,2vw,28px)] font-bold text-white mb-3">{level.title}</h3>
+        <p className="text-[#9CA3AF] text-sm leading-[1.85] mb-4">{level.description}</p>
         <span className={`inline-block px-3 py-1 text-xs font-mono text-white rounded ${level.statusColor}`}>
           {level.status}
         </span>
@@ -103,22 +101,23 @@ export function IntelligenceSection() {
 
   return (
     <section id="intelligence" ref={sectionRef} className="relative py-32 lg:py-40">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+        <div className={`mb-16 lg:mb-24 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+          <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
             <span className="w-8 h-px bg-primary" />
             The Intelligence
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-6">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white mb-5">
             It Gets Smarter Every Day It Runs.
           </h2>
-          <p className="text-xl text-[#9CA3AF] max-w-2xl">
+          <p className="text-xl text-[#9CA3AF] max-w-2xl leading-[1.85]">
             Corteron does not start intelligent. It starts reliable. Intelligence emerges through the data it accumulates over time.
           </p>
         </div>
 
-        {/* Levels Grid - desktop 5 columns, mobile stack */}
+        {/* Levels Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
           {levels.map((level, index) => (
             <IntelligenceLevel key={level.number} level={level} index={index} />

@@ -41,20 +41,15 @@ function DomainCard({ domain, index }: { domain: typeof domains[0]; index: numbe
   return (
     <div
       ref={cardRef}
-      className={`relative group p-6 border border-white/5 bg-[#0D0D1F] hover:border-primary hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
-      style={{ transitionDelay: `${index * 50}ms` }}
+      className={`relative group p-6 card-premium hover:border-primary/40 hover:bg-primary/5 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
+      style={{ transitionDelay: `${index * 40}ms` }}
     >
-      {/* Hover lift effect */}
-      <div className="group-hover:-translate-y-1 transition-transform duration-500">
-        {/* Top border that slides in on hover */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-        
-        <span className="text-sm lg:text-[14px] text-[#B45309] font-mono font-bold">{domain.number}</span>
-        <h3 className="text-lg font-bold text-white mt-3 mb-2 group-hover:text-white transition-colors">{domain.name}</h3>
-        <p className="text-sm text-[#9CA3AF] leading-relaxed group-hover:text-[#D1D5DB] transition-colors">{domain.description}</p>
-      </div>
+      {/* Top border that slides in on hover */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl" />
+
+      <span className="text-sm lg:text-[14px] text-[#B45309] font-mono font-bold">{domain.number}</span>
+      <h3 className="text-lg font-bold text-white mt-3 mb-2 group-hover:text-white transition-colors">{domain.name}</h3>
+      <p className="text-sm text-[#9CA3AF] leading-[1.85] group-hover:text-[#D1D5DB] transition-colors">{domain.description}</p>
     </div>
   );
 }
@@ -77,25 +72,26 @@ export function DomainsSection() {
 
   return (
     <section id="domains" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       {/* Gradient background using CSS variable */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: "linear-gradient(to bottom, #050510 0%, color-mix(in srgb, var(--primary) 3%, transparent) 50%, #050510 100%)",
         }}
       />
-      
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-primary mb-6 uppercase tracking-widest">
+        <div className={`mb-16 lg:mb-24 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+          <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
             <span className="w-8 h-px bg-primary" />
             Complete Coverage
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-6">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white mb-5">
             Every Domain Your Business Runs Across.
           </h2>
-          <p className="text-xl text-[#9CA3AF] max-w-2xl">
+          <p className="text-xl text-[#9CA3AF] max-w-2xl leading-[1.85]">
             Most tools automate one function. Corteron covers every operational domain simultaneously on one system.
           </p>
         </div>
@@ -107,29 +103,29 @@ export function DomainsSection() {
           ))}
         </div>
 
-        {/* Bottom Callout with watermark */}
-        <div className="relative bg-[#0A0A1A] px-8 py-16 text-center mb-8 overflow-hidden">
+        {/* Bottom Callout */}
+        <div className="relative card-premium px-8 py-16 text-center mb-8 overflow-hidden">
           {/* Watermark text */}
-          <div 
+          <div
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{
-              fontSize: '200px',
-              fontWeight: 'bold',
+              fontSize: "200px",
+              fontWeight: "bold",
               opacity: 0.015,
-              color: '#ffffff',
-              fontFamily: 'var(--font-display)',
+              color: "#ffffff",
+              fontFamily: "var(--font-display)",
             }}
           >
             CORTERON
           </div>
-          
+
           <div className="relative z-10">
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-8">
               While your competitors are managing tools, Corteron is running your entire business.
             </h3>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 h-14 text-base rounded-full"
+              className="bg-primary hover:bg-primary/90 text-white px-8 h-14 text-base rounded-full btn-primary-glow font-semibold"
               asChild
             >
               <CalButton>

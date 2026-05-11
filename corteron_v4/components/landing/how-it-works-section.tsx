@@ -55,23 +55,10 @@ function HowItWorksCard({ card, index }: { card: typeof howItWorksCards[0]; inde
   return (
     <div
       ref={cardRef}
-      className={`transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}
+      style={{ transitionDelay: `${index * 120}ms` }}
     >
-      <div
-        className="relative p-7 rounded-xl border border-white/5 bg-[#0D0D1F] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 h-full"
-        style={{
-          ["--hover-shadow" as string]: "0 20px 60px color-mix(in srgb, var(--primary) 8%, transparent)",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = "0 20px 60px color-mix(in srgb, var(--primary) 8%, transparent)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = "none";
-        }}
-      >
+      <div className="card-premium p-7 h-full">
         {/* Number badge */}
         <span className="inline-block text-[13px] font-bold font-mono text-[#B45309] mb-3">
           {card.number}
@@ -83,12 +70,12 @@ function HowItWorksCard({ card, index }: { card: typeof howItWorksCards[0]; inde
         </div>
 
         {/* Title */}
-        <h3 className="text-[20px] font-bold text-white mb-2">
+        <h3 className="text-[clamp(20px,2vw,28px)] font-bold text-white mb-2">
           {card.title}
         </h3>
 
         {/* Description */}
-        <p className="text-[15px] text-[#9CA3AF] leading-[1.8]">
+        <p className="text-[15px] text-[#9CA3AF] leading-[1.85]">
           {card.description}
         </p>
       </div>
@@ -99,26 +86,27 @@ function HowItWorksCard({ card, index }: { card: typeof howItWorksCards[0]; inde
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="relative py-32 lg:py-40 overflow-hidden">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-20 max-w-2xl">
           <span
             className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold"
-            style={{ letterSpacing: "0.25em" }}
+            style={{ letterSpacing: "0.3em" }}
           >
             <span className="w-8 h-px bg-primary" />
             HOW IT WORKS
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-white mb-4">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display text-white mb-5">
             One System. Every Business Function.
           </h2>
-          <p className="text-lg text-[#9CA3AF] leading-relaxed">
+          <p className="text-lg text-[#9CA3AF] leading-[1.85]">
             Five modules run automatically across all 15 operational domains of your business. From the moment a lead arrives to the moment revenue is attributed.
           </p>
         </div>
 
         {/* Cards Grid - 2 columns desktop, 1 mobile, 5th card centered */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {howItWorksCards.map((card, index) => (
             <div
               key={card.number}

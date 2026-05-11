@@ -55,12 +55,12 @@ export function Navigation() {
             ? "bg-[#0A0A1A]/90 backdrop-blur-xl border border-white/5 rounded-2xl shadow-lg max-w-[1200px]"
             : "bg-transparent max-w-[1400px]"
         }`}
+        style={{
+          borderBottom: isScrolled ? undefined : "1px solid rgba(255,255,255,0.06)",
+          borderBottomColor: isScrolled ? undefined : "transparent",
+        }}
       >
-        <div
-          className={`flex items-center justify-between transition-all duration-500 px-6 lg:px-8 ${
-            isScrolled ? "h-14" : "h-20"
-          }`}
-        >
+        <div className="flex items-center justify-between transition-all duration-500 px-6 lg:px-8 h-[72px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded-sm">
             <Image
@@ -68,17 +68,15 @@ export function Navigation() {
               alt="Corteron"
               width={48}
               height={48}
-              className={`object-contain transition-all duration-500 ${isScrolled ? "w-10 h-10" : "w-12 h-12"}`}
+              className="object-contain w-11 h-11 transition-all duration-500"
             />
-            <span
-              className={`font-bold text-white tracking-[0.2em] transition-all duration-500 ${isScrolled ? "text-base" : "text-lg"}`}
-            >
+            <span className="font-bold text-white tracking-[0.2em] text-lg transition-all duration-500">
               CORTERON
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-10">
             {desktopNavLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -104,7 +102,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center">
             <Button
               size="sm"
-              className={`bg-primary hover:bg-primary/90 text-white rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2.5 font-semibold btn-primary-glow transition-all duration-200"
               asChild
             >
               <CalButton>
@@ -171,7 +169,7 @@ export function Navigation() {
             style={{ transitionDelay: isMobileMenuOpen ? "450ms" : "0ms" }}
           >
             <Button
-              className="w-full bg-primary text-white rounded-full h-14 text-base"
+              className="w-full bg-primary text-white rounded-full h-14 text-base font-semibold btn-primary-glow"
               asChild
             >
               <CalButton>

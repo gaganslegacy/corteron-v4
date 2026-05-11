@@ -21,15 +21,30 @@ const legalLinks = [
 
 export function FooterSection() {
   return (
-    <footer className="relative border-t border-white/5 bg-[#050510]">
+    <footer className="relative bg-[#050510]">
+      {/* Gradient top border */}
+      <div
+        className="w-full h-px"
+        style={{
+          background: "linear-gradient(to right, transparent, var(--primary) 30%, var(--primary) 70%, transparent)",
+        }}
+      />
+
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
-        <div className="py-16 lg:py-24">
+        <div className="py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* Left Column - Brand */}
             <div>
-              <div className="mb-6">
-                <Link href="/" className="inline-flex items-center gap-3 group">
+              <div className="mb-6 relative">
+                {/* Radial glow behind logo */}
+                <div
+                  className="absolute -inset-4 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(circle at 40% 50%, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 70%)",
+                  }}
+                />
+                <Link href="/" className="relative inline-flex items-center gap-3 group">
                   <Image
                     src="/corteron-logo.png"
                     alt="Corteron"
@@ -37,7 +52,7 @@ export function FooterSection() {
                     height={40}
                     className="object-contain w-10 h-10 group-hover:opacity-80 transition-opacity"
                   />
-                  <span className="text-xl lg:text-2xl font-bold text-white tracking-widest group-hover:text-white/80 transition-colors">
+                  <span className="text-[18px] font-[700] text-white tracking-[0.25em] group-hover:text-white/80 transition-colors">
                     CORTERON
                   </span>
                 </Link>
@@ -46,7 +61,7 @@ export function FooterSection() {
               <p className="text-[#9CA3AF] leading-relaxed mb-4 text-sm">
                 The machine that runs every domain of your business.
               </p>
-              
+
               <p className="text-[#4B5563] text-xs">
                 Automatically.
               </p>
@@ -91,7 +106,7 @@ export function FooterSection() {
               <h3 className="text-sm font-medium mb-6 text-white uppercase tracking-widest">Get Started</h3>
               <Button
                 size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-white px-8 h-12 text-sm rounded-full mb-6"
+                className="w-full bg-primary hover:bg-primary/90 text-white px-8 h-12 text-sm rounded-full mb-6 btn-primary-glow font-semibold"
                 asChild
               >
                 <CalButton>

@@ -34,31 +34,27 @@ export function IntegrationsSection() {
   }, []);
 
   return (
-    <section id="integrations" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="integrations" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+      <div className="section-divider absolute top-0 left-0 right-0" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div
-          className={`text-center max-w-3xl mx-auto mb-16 lg:mb-24 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-            <span className="w-8 h-px bg-foreground/30" />
+        <div className={`text-center max-w-3xl mx-auto mb-16 lg:mb-24 blur-in-visible ${isVisible ? "" : "blur-in-hidden"}`}>
+          <span className="inline-flex items-center gap-3 text-[11px] font-mono text-primary mb-6 uppercase font-semibold" style={{ letterSpacing: "0.3em" }}>
+            <span className="w-8 h-px bg-primary" />
             Integrations
-            <span className="w-8 h-px bg-foreground/30" />
+            <span className="w-8 h-px bg-primary" />
           </span>
-          <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6">
+          <h2 className="text-[clamp(36px,4.5vw,64px)] font-display tracking-tight mb-5">
             Works with everything
             <br />
             you already use.
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground leading-[1.85]">
             200+ pre-built integrations. Connect your entire stack in minutes.
           </p>
         </div>
-
       </div>
-      
+
       {/* Full-width marquees outside container */}
       <div className="w-full mb-6">
         <div className="flex gap-6 marquee">
@@ -67,7 +63,7 @@ export function IntegrationsSection() {
               {integrations.map((integration) => (
                 <div
                   key={`${integration.name}-${setIndex}`}
-                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  className="shrink-0 px-8 py-6 card-premium hover:border-primary/30 hover:bg-primary/5 group"
                 >
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform text-white">
                     {integration.name}
@@ -79,7 +75,7 @@ export function IntegrationsSection() {
           ))}
         </div>
       </div>
-      
+
       {/* Reverse marquee */}
       <div className="w-full">
         <div className="flex gap-6 marquee-reverse">
@@ -88,7 +84,7 @@ export function IntegrationsSection() {
               {[...integrations].reverse().map((integration) => (
                 <div
                   key={`${integration.name}-reverse-${setIndex}`}
-                  className="shrink-0 px-8 py-6 border border-white/5 bg-[#0A0A1A] hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 group"
+                  className="shrink-0 px-8 py-6 card-premium hover:border-primary/30 hover:bg-primary/5 group"
                 >
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform text-white">
                     {integration.name}
